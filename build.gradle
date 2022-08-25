@@ -24,8 +24,7 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'com.soft2412_asm1_cc14_g5'
-    mainClass = 'com.soft2412_asm1_cc14_g5.HelloApplication'
+    mainClass = 'currencyConverter.CurrencyConverterApp'
 }
 
 javafx {
