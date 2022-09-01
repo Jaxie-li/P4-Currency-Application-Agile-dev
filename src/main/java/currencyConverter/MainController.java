@@ -16,17 +16,6 @@ public class MainController {
     private Scene scene;
     private Parent root;
 
-
-    public void switchToSummaryTable(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/SummaryTable.fxml"));
-        Parent root = loader.load();
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
     // Define events
     public void onclick() {
         System.out.println("button clicked!");
@@ -40,5 +29,7 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
+
+
 }
 
