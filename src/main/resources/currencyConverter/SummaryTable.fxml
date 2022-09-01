@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="278.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="currencyConverter.MainController">
+    <TableView layoutX="-2.0" layoutY="-1.0" prefHeight="279.0" prefWidth="607.0">
+      <columns>
+          <TableColumn prefWidth="75.0" text="Current"/>
+          <TableColumn prefWidth="75.0" text="Target"/>
+          <TableColumn prefWidth="75.0" text="Column X"/>
+          <TableColumn prefWidth="75.0" text="Mean"/>
+          <TableColumn prefWidth="75.0" text="Column X"/>
+          <TableColumn prefWidth="75.0" text="Column X"/>
+      </columns>
+    </TableView>
+</AnchorPane>
