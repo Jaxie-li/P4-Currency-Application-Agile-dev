@@ -1,20 +1,30 @@
 package currencyConverter;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.net.URL;
 import java.util.EventObject;
+import java.util.ResourceBundle;
 
 public class MainController {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+
+
+    public MainController() {
+    }
 
     // Define events
     public void onclick() {
@@ -29,7 +39,5 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
-
-
 }
 
