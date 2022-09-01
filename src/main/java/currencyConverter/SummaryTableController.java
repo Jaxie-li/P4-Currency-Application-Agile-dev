@@ -1,5 +1,6 @@
 package currencyConverter;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -16,6 +17,10 @@ public class SummaryTableController{
     private Parent root;
 
     public void switchToSummaryTable(javafx.event.ActionEvent actionEvent) throws IOException{
+
+//        @FXML
+//        private
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/SummaryTable.fxml"));
         Parent root = loader.load();
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
