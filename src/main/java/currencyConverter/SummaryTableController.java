@@ -30,6 +30,7 @@ public class SummaryTableController {
         int length = csv.records.size();
         for (int i = 1; i < length; i++) {
             firstBox.getItems().add(csv.records.get(i).get(0));
+            secondBox.getItems().add(csv.records.get(i).get(0));
         }
     }
 
