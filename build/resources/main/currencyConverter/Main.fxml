@@ -20,7 +20,7 @@
    <ChoiceBox layoutX="308.0" layoutY="109.0" prefWidth="150.0" />
    <ChoiceBox layoutX="308.0" layoutY="162.0" prefWidth="150.0" />
    <Button layoutX="260.0" layoutY="289.0" mnemonicParsing="false" text="Result" />
-   <Button layoutX="229.0" layoutY="353.0" mnemonicParsing="false" onAction="#switchToPopularCurrencyTable" text="Popular currency" />
+   <Button layoutX="229.0" layoutY="353.0" mnemonicParsing="false" text="Popular currency" />
    <Label layoutX="135.0" layoutY="221.0" text="Enter your amount:" />
    <TextArea layoutX="307.0" layoutY="208.0" prefHeight="27.0" prefWidth="146.0" />
 
