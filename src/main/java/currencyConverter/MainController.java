@@ -30,7 +30,7 @@ public class MainController {
         SummaryTableController controller = loader.getController();
         controller.setStage(stage);
         // todo: 读取relative path 的csv
-        Csv csv = new Csv("C:\\Users\\Louie Gan\\SOFT2412_ASM1_CC14_G5\\Book1.csv");
+        Csv csv = new Csv("Book1.csv");
         controller.setCsv(csv);
 
         stage.setScene(scene);
