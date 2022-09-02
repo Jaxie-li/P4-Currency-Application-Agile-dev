@@ -19,6 +19,8 @@ public class CurrencyConverterApp extends Application {
         MainController mainController = loader.getController();
 
         Scene scene = new Scene(root);
+        String css = this.getClass().getResource("Main.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.setTitle("Currency Converter");
         stage.setResizable(false);
