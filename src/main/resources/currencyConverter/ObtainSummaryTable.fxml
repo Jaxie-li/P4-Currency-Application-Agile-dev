@@ -8,12 +8,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.SummaryTableController">
    <Button layoutX="211.0" layoutY="333.0" mnemonicParsing="false" onAction="#switchToSummaryTable" prefHeight="45.0" prefWidth="178.0" text="Generate currency summary" />
-   <ChoiceBox fx:id="firstBox" layoutX="37.0" layoutY="92.0" prefWidth="150.0" />
+   <ChoiceBox layoutX="37.0" layoutY="92.0" prefWidth="150.0" />
    <DatePicker layoutX="386.0" layoutY="170.0" />
    <Label layoutX="30.0" layoutY="140.0" text="Start date:" />
    <Label layoutX="386.0" layoutY="140.0" text="End date:" />
    <DatePicker layoutX="30.0" layoutY="170.0" />
-   <ChoiceBox fx:id="secondBox" layoutX="386.0" layoutY="92.0" prefHeight="23.0" prefWidth="150.0" />
+   <ChoiceBox layoutX="386.0" layoutY="92.0" prefHeight="23.0" prefWidth="150.0" />
    <Label layoutX="37.0" layoutY="64.0" text="Current currency" />
    <Label layoutX="386.0" layoutY="64.0" text="Target currency" />
    <Button layoutX="517.0" layoutY="356.0" mnemonicParsing="false" onAction="#back" text="Back" />
