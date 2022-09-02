@@ -17,14 +17,12 @@ public class CurrencyConverterApp extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/Main.fxml"));
         Parent root = loader.load();
         MainController mainController = loader.getController();
-
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Currency Converter");
         stage.setResizable(false);
         stage.show();
     }
-
 
 
     public static void main(String[] args) {
