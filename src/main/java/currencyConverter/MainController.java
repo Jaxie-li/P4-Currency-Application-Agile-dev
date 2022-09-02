@@ -30,6 +30,15 @@ public class MainController {
         stage.show();
     }
 
+    public void switchToPopularCurrencyTable(javafx.event.ActionEvent actionEvent) throws IOException {
+        //TODO: GUI - style the first column of the table for it to look like a header
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/PopularCurrencyTable.fxml"));
+        Parent root = loader.load();
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
 
