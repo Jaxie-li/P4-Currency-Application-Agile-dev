@@ -4,24 +4,81 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.MainController">
-   <Label alignment="CENTER" layoutX="199.0" layoutY="37.0" prefHeight="52.0" prefWidth="203.0" text="Currency Converter">
-      <font>
-         <Font size="20.0" />
-      </font>
-   </Label>
-   <Label layoutX="135.0" layoutY="113.0" text="Current currency" />
-   <Label layoutX="135.0" layoutY="166.0" text="Target currency" />
-   <Button layoutX="37.0" layoutY="353.0" mnemonicParsing="false" onAction="#onclick" text="Admin login" />
-   <Button layoutX="427.0" layoutY="353.0" mnemonicParsing="false" onAction="#switchToObtainSummaryTable" text="Obtain summary table" />
-   <ChoiceBox layoutX="308.0" layoutY="109.0" prefWidth="150.0" />
-   <ChoiceBox layoutX="308.0" layoutY="162.0" prefWidth="150.0" />
-   <Button layoutX="260.0" layoutY="289.0" mnemonicParsing="false" text="Result" />
-   <Button layoutX="229.0" layoutY="353.0" mnemonicParsing="false" onAction="#switchToPopularCurrencyTable" text="Popular currency" />
-   <Label layoutX="135.0" layoutY="221.0" text="Enter your amount:" />
-   <TextArea layoutX="307.0" layoutY="208.0" prefHeight="27.0" prefWidth="146.0" />
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffe3aeffe3ae;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.MainController">
+   <BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Main.css">
+      <left>
+         <VBox prefHeight="400.0" prefWidth="148.0" style="-fx-background-color: #353535#353535;" stylesheets="@Main.css" BorderPane.alignment="CENTER">
+            <children>
+               <Button fx:id="admin_login" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#onclick" prefHeight="36.0" prefWidth="157.0" stylesheets="@Main.css" text="Admin Login" textFill="#b8b8b8">
+                  <graphic>
+                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@icon/user.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  <font>
+                     <Font name="Optima Regular" size="12.0" />
+                  </font></Button>
+               <Button fx:id="popular_currency" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="163.0" stylesheets="@Main.css" text="Popular currency" textFill="#b9b8b8">
+                  <font>
+                     <Font name="Optima Regular" size="12.0" />
+                  </font>
+                  <graphic>
+                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@icon/star.png" />
+                        </image>
+                     </ImageView>
+                  </graphic></Button>
+               <Button fx:id="summary_table" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToObtainSummaryTable" prefHeight="36.0" prefWidth="156.0" stylesheets="@Main.css" text="Summary table" textFill="#b8b8b8">
+                  <font>
+                     <Font name="Optima Regular" size="12.0" />
+                  </font>
+                  <graphic>
+                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@icon/file.png" />
+                        </image>
+                     </ImageView>
+                  </graphic></Button>
+            </children>
+         </VBox>
+      </left>
+      <center>
+         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #393838#393838;" BorderPane.alignment="CENTER">
+            <children>
+               <TextArea layoutX="233.0" layoutY="235.0" prefHeight="33.0" prefWidth="146.0" />
+               <Button fx:id="result" layoutX="158.0" layoutY="314.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="146.0" stylesheets="@Main.css" text="Result" textFill="#b8b8b8" />
+               <ChoiceBox fx:id="current_currency_choicebox" layoutX="231.0" layoutY="126.0" prefWidth="150.0" />
+               <ChoiceBox fx:id="targret_choicebox" layoutX="231.0" layoutY="181.0" prefWidth="150.0" />
+               <Label fx:id="title" alignment="CENTER" layoutX="137.0" layoutY="34.0" prefHeight="52.0" prefWidth="203.0" stylesheets="@Main.css" text="Currency Converter" textFill="#b8b8b8">
+                  <font>
+                     <Font name="Optima Regular" size="24.0" />
+                  </font>
+               </Label>
+               <Label fx:id="current_label" layoutX="77.0" layoutY="135.0" stylesheets="@Main.css" text="Current currency" textFill="#b8b8b8">
+                  <font>
+                     <Font name="Optima Regular" size="13.0" />
+                  </font></Label>
+               <Label fx:id="target_label" layoutX="77.0" layoutY="185.0" text="Target currency" textFill="#b8b8b8">
+                  <font>
+                     <Font name="Optima Regular" size="13.0" />
+                  </font></Label>
+               <Label fx:id="enter_amont_label" layoutX="77.0" layoutY="245.0" text="Enter your amount:" textFill="#b8b8b8">
+                  <font>
+                     <Font name="Optima Regular" size="13.0" />
+                  </font></Label>
+            </children>
+         </Pane>
+      </center>
+   </BorderPane>
 </AnchorPane>
