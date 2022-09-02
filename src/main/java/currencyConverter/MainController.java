@@ -26,6 +26,17 @@ public class MainController {
         Parent root = loader.load();
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
+<<<<<<< HEAD
+=======
+
+        SummaryTableController controller = loader.getController();
+        controller.setStage(stage);
+        // todo: 读取relative path 的csv
+        // change the path
+        Csv csv = new Csv("Book1.csv");
+        controller.setCsv(csv);
+
+>>>>>>> yyua9492
         stage.setScene(scene);
         stage.show();
     }
