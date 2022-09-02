@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.EventObject;
 import java.util.ResourceBundle;
 
-public class SummaryTableController implements Initializable{
+public class SummaryTableController {
 
 
     private Stage stage;
@@ -48,7 +48,6 @@ public class SummaryTableController implements Initializable{
 
     }
 
-    @Override
     public void initialize(URL location, ResourceBundle resources) {
         firstBox.getItems().addAll(currency);
     }
