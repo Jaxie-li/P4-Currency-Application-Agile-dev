@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.MainController">
-   <children>
-      <Label alignment="CENTER" layoutX="199.0" layoutY="37.0" prefHeight="52.0" prefWidth="203.0" text="Currency Converter">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="173.0" layoutY="157.0" text="Username" />
-      <Label layoutX="173.0" layoutY="226.0" text="Password" />
-      <TextField layoutX="268.0" layoutY="153.0" />
-      <TextField layoutX="268.0" layoutY="222.0" />
-      <Button layoutX="276.0" layoutY="308.0" mnemonicParsing="false" onAction="#onclick" text="Login" />
-   </children>
+   <Label alignment="CENTER" layoutX="199.0" layoutY="37.0" prefHeight="52.0" prefWidth="203.0" text="Currency Converter">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+   <Label layoutX="135.0" layoutY="113.0" text="Current currency" />
+   <Label layoutX="135.0" layoutY="166.0" text="Target currency" />
+   <Button layoutX="37.0" layoutY="353.0" mnemonicParsing="false" onAction="#onclick" text="Admin login" />
+   <Button layoutX="427.0" layoutY="353.0" mnemonicParsing="false" onAction="#switchToObtainSummaryTable" text="Obtain summary table" />
+   <ChoiceBox layoutX="308.0" layoutY="109.0" prefWidth="150.0" />
+   <ChoiceBox layoutX="308.0" layoutY="162.0" prefWidth="150.0" />
+   <Button layoutX="260.0" layoutY="289.0" mnemonicParsing="false" text="Result" />
+   <Button layoutX="229.0" layoutY="353.0" mnemonicParsing="false" onAction="#switchToPopularCurrencyTable" text="Popular currency" />
+   <Label layoutX="135.0" layoutY="221.0" text="Enter your amount:" />
+   <TextArea layoutX="307.0" layoutY="208.0" prefHeight="27.0" prefWidth="146.0" />
+
 </AnchorPane>
