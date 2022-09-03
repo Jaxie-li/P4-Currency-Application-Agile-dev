@@ -12,8 +12,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffe3aeffe3ae;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.MainController">
-   <BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Main.css">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffe3aeffe3ae;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.MainController">
+   <BorderPane prefHeight="400.0" prefWidth="700.0" stylesheets="@Main.css">
       <left>
          <VBox prefHeight="400.0" prefWidth="148.0" style="-fx-background-color: #353535#353535;" stylesheets="@Main.css" BorderPane.alignment="CENTER">
             <children>
@@ -54,13 +54,16 @@
          </VBox>
       </left>
       <center>
-         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #393838#393838;" BorderPane.alignment="CENTER">
+         <Pane prefHeight="400.0" prefWidth="461.0" style="-fx-background-color: #393838#393838;" BorderPane.alignment="CENTER">
             <children>
-               <TextArea layoutX="233.0" layoutY="235.0" prefHeight="33.0" prefWidth="146.0" />
-               <Button fx:id="result" layoutX="158.0" layoutY="314.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="146.0" stylesheets="@Main.css" text="Result" textFill="#b8b8b8" />
-               <ChoiceBox fx:id="current_currency_choicebox" layoutX="231.0" layoutY="126.0" prefWidth="150.0" />
-               <ChoiceBox fx:id="targret_choicebox" layoutX="231.0" layoutY="181.0" prefWidth="150.0" />
-               <Label fx:id="title" alignment="CENTER" layoutX="137.0" layoutY="34.0" prefHeight="52.0" prefWidth="203.0" stylesheets="@Main.css" text="Currency Converter" textFill="#b8b8b8">
+               <TextArea layoutX="305.0" layoutY="234.0" prefHeight="33.0" prefWidth="146.0" />
+               <Button fx:id="result" layoutX="204.0" layoutY="310.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="146.0" stylesheets="@Main.css" text="Result" textFill="#b8b8b8">
+                  <font>
+                     <Font name="Optima Regular" size="13.0" />
+                  </font></Button>
+               <ChoiceBox fx:id="current_currency_choicebox" layoutX="306.0" layoutY="122.0" prefWidth="150.0" />
+               <ChoiceBox fx:id="targret_choicebox" layoutX="306.0" layoutY="187.0" prefWidth="150.0" />
+               <Label fx:id="title" alignment="CENTER" layoutX="175.0" layoutY="35.0" prefHeight="52.0" prefWidth="203.0" stylesheets="@Main.css" text="Currency Converter" textFill="#b8b8b8">
                   <font>
                      <Font name="Optima Regular" size="24.0" />
                   </font>
