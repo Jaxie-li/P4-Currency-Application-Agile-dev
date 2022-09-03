@@ -4,18 +4,17 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="278.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="currencyConverter.SummaryTableController">
-    <TableView layoutX="-1.0" prefHeight="279.0" prefWidth="649.0">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.SummaryTableController">
+    <TableView layoutX="-1.0" prefHeight="400.0" prefWidth="700.0" stylesheets="@Main.css">
       <columns>
-          <TableColumn prefWidth="75.0" text="Current"/>
-          <TableColumn prefWidth="75.0" text="Target"/>
-          <TableColumn prefWidth="75.0" text="Date"/>
-          <TableColumn prefWidth="75.0" text="Rate"/>
-          <TableColumn prefWidth="75.0" text="Mean"/>
-          <TableColumn prefWidth="75.0" text="Max"/>
-          <TableColumn prefWidth="75.0" text="Min"/>
-          <TableColumn prefWidth="122.0" text="Standard deviation"/>
+          <TableColumn fx:id="current_column" text="Current" />
+          <TableColumn text="Target" />
+          <TableColumn text="Date" />
+          <TableColumn text="Rate" />
+          <TableColumn text="Mean" />
+          <TableColumn text="Max" />
+          <TableColumn text="Min" />
+          <TableColumn prefWidth="145.0" text="Standard deviation" />
       </columns>
     </TableView>
 </AnchorPane>
