@@ -1,6 +1,7 @@
 package currencyConverter;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,8 +18,14 @@ public class Csv {
                 records.add(Arrays.asList(values));
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+            throw new RuntimeException(e);}
+//        } catch (FileNotFoundException ex) {
+//            Logger.getLogger(JavaFXCSVTableView.class.getName())
+//                .log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(JavaFXCSVTableView.class.getName())
+//                .log(Level.SEVERE, null, ex);
+//    }
 
 
     }
