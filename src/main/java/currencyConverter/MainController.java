@@ -1,16 +1,17 @@
 package currencyConverter;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.EventObject;
 
 public class MainController {
+
 
     private Stage stage;
     private Scene scene;
@@ -21,17 +22,17 @@ public class MainController {
         System.out.println("button clicked!");
     }
 
-    public void switchToObtainSummaryTable(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void switchToObtainSummaryTable(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/ObtainSummaryTable.fxml"));
         Parent root = loader.load();
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
 
-        SummaryTableController controller = loader.getController();
-        controller.setStage(stage);
-        // todo: 读取relative path 的csv
-        Csv csv = new Csv("Book1.csv");
-        controller.setCsv(csv);
+//        ObtainSummaryController controller = loader.getController();
+//        controller.setStage(stage);
+//        // todo: 读取relative path 的csv
+//        Csv csv = new Csv("Book1.csv");
+//        controller.setCsv(csv);
 
         stage.setScene(scene);
         stage.show();
@@ -45,6 +46,10 @@ public class MainController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void adminLogin(){
+        System.out.println("Admin Login Page should be invoked!");
     }
 
 }
