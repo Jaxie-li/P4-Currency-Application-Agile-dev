@@ -25,7 +25,6 @@ public class SummaryTableController {
     private Scene scene;
     private Parent root;
 
-    @FXML
     public void setCsv(Csv csv) {
         this.csv = csv;
         int length = csv.records.size();

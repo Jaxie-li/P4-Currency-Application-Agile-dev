@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="daf9768e-7f96-4817-8277-8cf7256ec2a9" name="Changes" comment="">
+    <list default="true" id="ed80f755-4443-46c7-8ed9-0b8ad3d253e3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/currencyConverter/SummaryTableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/currencyConverter/SummaryTableController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/currencyConverter/SummaryTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/currencyConverter/SummaryTable.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/currencyConverter/SummaryTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/currencyConverter/SummaryTableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/currencyConverter/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/currencyConverter/Main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/currencyConverter/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/currencyConverter/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/currencyConverter/SummaryTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/currencyConverter/SummaryTable.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/currencyConverter/ObtainSummaryTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/currencyConverter/ObtainSummaryTable.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
