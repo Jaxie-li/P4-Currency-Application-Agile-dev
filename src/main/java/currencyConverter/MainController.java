@@ -55,5 +55,16 @@ public class MainController {
         System.out.println("Admin Login Page should be invoked!");
     }
 
+    public void switchToAdminUser(javafx.event.ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/AdminUser.fxml"));
+        Parent root = loader.load();
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
 }
 

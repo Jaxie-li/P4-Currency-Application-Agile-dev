@@ -23,7 +23,7 @@
          <left>
             <VBox prefHeight="400.0" prefWidth="148.0" style="-fx-background-color: #353535;" stylesheets="@Main.css" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="adminLogin" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#adminLogin" prefHeight="36.0" prefWidth="157.0" stylesheets="@Main.css" text="Admin Login" textFill="#b8b8b8">
+                  <Button fx:id="adminLogin" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToAdminUser"  prefHeight="36.0" prefWidth="157.0" stylesheets="@Main.css" text="Admin Login" textFill="#b8b8b8">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
