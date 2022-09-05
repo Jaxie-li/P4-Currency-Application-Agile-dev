@@ -67,7 +67,7 @@ goto fail
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\SOFT2412_ASM1_CC14_G5-1.0-SNAPSHOT.jar;%APP_HOME%\lib\javafx-fxml-17.0.2-mac.jar;%APP_HOME%\lib\javafx-controls-17.0.2-mac.jar;%APP_HOME%\lib\javafx-controls-17.0.2.jar;%APP_HOME%\lib\javafx-graphics-17.0.2-mac.jar;%APP_HOME%\lib\javafx-graphics-17.0.2.jar;%APP_HOME%\lib\javafx-base-17.0.2-mac.jar;%APP_HOME%\lib\javafx-base-17.0.2.jar
+set CLASSPATH=%APP_HOME%\lib\SOFT2412_ASM1_CC14_G5-1.0-SNAPSHOT.jar;%APP_HOME%\lib\javafx-fxml-18.0.2-mac.jar;%APP_HOME%\lib\javafx-controls-18.0.2-mac.jar;%APP_HOME%\lib\javafx-controls-18.0.2.jar;%APP_HOME%\lib\javafx-graphics-18.0.2-mac.jar;%APP_HOME%\lib\javafx-graphics-18.0.2.jar;%APP_HOME%\lib\javafx-base-18.0.2-mac.jar;%APP_HOME%\lib\javafx-base-18.0.2.jar
 
 
 @rem Execute SOFT2412_ASM1_CC14_G5
