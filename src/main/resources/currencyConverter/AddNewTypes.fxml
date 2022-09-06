@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.AdminUser">
+    <children>
+        <Label layoutX="31.0" layoutY="92.0" prefHeight="33.0" prefWidth="145.0" text="New  currency type">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <TextArea layoutX="188.0" layoutY="85.0" prefHeight="47.0" prefWidth="211.0" />
+        <Label layoutX="32.0" layoutY="184.0" prefHeight="33.0" prefWidth="145.0" text="Choose convert type">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <ChoiceBox layoutX="191.0" layoutY="177.0" prefHeight="47.0" prefWidth="205.0" />
+        <Label layoutX="46.0" layoutY="296.0" prefHeight="33.0" prefWidth="145.0" text="Add date">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <DatePicker layoutX="191.0" layoutY="289.0" prefHeight="47.0" prefWidth="219.0" />
+        <Button layoutX="484.0" layoutY="157.0" mnemonicParsing="false" text="Add">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Button layoutX="484.0" layoutY="224.0" mnemonicParsing="false" onAction="#returnAdminPage" text="Return">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Label layoutX="176.0" layoutY="14.0" prefHeight="33.0" prefWidth="276.0" text="You can add new currency type in here ">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
