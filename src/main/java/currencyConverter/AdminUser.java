@@ -83,9 +83,17 @@ public class AdminUser {
     }
 
     //third situation => switch to the currency history
+    public void SwitchToRatesHistory(javafx.event.ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/RatesHistory.fxml"));
+        Parent root = loader.load();
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     //Fourth situation => add new currency type, include time, currency type
-    public void AddNewCurrencyType(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void SwitchToAddNewCurrencyType(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/AddNewTypes.fxml"));
         Parent root = loader.load();
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -93,6 +101,8 @@ public class AdminUser {
         stage.setScene(scene);
         stage.show();
     }
+
+
 }
 
 
