@@ -14,6 +14,7 @@ import java.io.IOException;
 
 public class CurrencyConverterApp extends Application {
 
+
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/Main.fxml"));
@@ -46,6 +47,7 @@ public class CurrencyConverterApp extends Application {
             System.out.println("you Successfully logged out.");
             stage.close();
         }}
+
 
     public static void main(String[] args) {
         launch(args);

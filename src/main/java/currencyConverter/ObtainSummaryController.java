@@ -9,12 +9,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/**
- * @version v1.0
- * @author: Zewei Shi
- * @date: Created in 4/09/2022 2:20 am
- * @description: TODO
- */
 public class ObtainSummaryController {
     private Stage stage;
     private Scene scene;
