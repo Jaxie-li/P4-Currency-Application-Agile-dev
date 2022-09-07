@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -36,6 +38,7 @@ public class MainController {
 
         stage.setScene(scene);
         stage.show();
+
     }
 
     public void switchToPopularCurrencyTable(javafx.event.ActionEvent actionEvent) throws IOException {
@@ -51,6 +54,17 @@ public class MainController {
     public void adminLogin(){
         System.out.println("Admin Login Page should be invoked!");
     }
+
+    public void switchToAdminUser(javafx.event.ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/AdminUser.fxml"));
+        Parent root = loader.load();
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
 }
 

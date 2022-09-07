@@ -53,3 +53,4 @@ jlink {
 jlinkZip {
     group = 'distribution'
 }
+
