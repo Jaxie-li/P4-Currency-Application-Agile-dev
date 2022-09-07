@@ -52,6 +52,7 @@ public class MainController {
         System.out.println("Admin Login Page should be invoked!");
     }
 
+    //click admin => login page
     public void SwitchToLogin(javafx.event.ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/LoginWindow.fxml"));
