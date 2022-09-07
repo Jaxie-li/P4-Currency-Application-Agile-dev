@@ -4,6 +4,3 @@
 #### Please use:
  **Username:admin Password:123**  
  **Username:admin1 Password:666**
-
-
-## (yyua created own branch)
