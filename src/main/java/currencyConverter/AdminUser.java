@@ -64,12 +64,6 @@ public class AdminUser {
         stage.setScene(scene);
         stage.show();
     }
-    /* use private method => not work
-   SummaryTableController stable = new SummaryTableController();
-   Method s = SummaryTableController.class.getDeclaredMethod("switchToSummaryTable");
-   s.setAccessible(true); //Set the method accessible
-   //s.invoke(stable);// now
-   }*/
 
     //second situation => exchange the rate page
     public void SwitchExchangeRate(javafx.event.ActionEvent actionEvent) throws IOException {

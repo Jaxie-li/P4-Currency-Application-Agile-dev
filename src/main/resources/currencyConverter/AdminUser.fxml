@@ -10,7 +10,7 @@
     <Button layoutX="54.0" layoutY="293.0" mnemonicParsing="false" onAction="#SwitchToAddNewCurrencyType" prefHeight="40.0" prefWidth="200.0" text="Add new currency type" />
     <Button layoutX="54.0" layoutY="209.0" mnemonicParsing="false" onAction="#SwitchToRatesHistory" prefHeight="40.0" prefWidth="200.0"  text="Rates History" />
     <Button layoutX="54.0" layoutY="131.0" mnemonicParsing="false" onAction="#SwitchExchangeRate" prefHeight="40.0" prefWidth="200.0" text="Exchange rate" />
-    <Label fx:id="nameAdmin" layoutX="367.0" layoutY="74.0" prefHeight="40.0" prefWidth="139.0" text="Hello Admin" textFill="#5f56ae">
+    <Label fx:id="nameAdmin" layoutX="367.0" layoutY="74.0" prefHeight="40.0" prefWidth="140.0" text="Hello Admin" textFill="#5f56ae">
         <font>
             <Font size="21.0" />
         </font>

@@ -27,7 +27,7 @@ public class LoginAdmin {
     @FXML private TextField uname; //text field's username
     @FXML private PasswordField pw; // password field's password
 
-    //return button to go back main page
+    //return button => main page
     public void returnToMainPage(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/Main.fxml"));
         Parent root = loader.load();
