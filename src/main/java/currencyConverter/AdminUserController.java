@@ -6,16 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.scene.*;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert.AlertType;
 
-import java.awt.*;
 import java.io.IOException;
 
-public class AdminUser {
+public class AdminUserController {
     @FXML
     private javafx.scene.control.Button logoutButton;
     Stage stage;
