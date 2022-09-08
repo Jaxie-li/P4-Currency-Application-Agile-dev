@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffe3ae;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.MainController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="700.0" stylesheets="@Main.css">
+         <left>
+            <VBox prefHeight="400.0" prefWidth="148.0" style="-fx-background-color: #353535;" stylesheets="@Main.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="adminLogin" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#SwitchToLogin"  prefHeight="36.0" prefWidth="158.0" stylesheets="@Main.css" text="Admin Login" textFill="#b8b8b8">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icon/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Optima Regular" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="popularCurrency" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToPopularCurrencyTable" prefHeight="36.0" prefWidth="163.0" stylesheets="@Main.css" text="Popular currency" textFill="#b9b8b8">
+                     <font>
+                        <Font name="Optima Regular" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icon/star.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="summaryTable" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToObtainSummaryTable" prefHeight="36.0" prefWidth="156.0" stylesheets="@Main.css" text="Summary table" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Optima Regular" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icon/file.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <Pane prefHeight="400.0" prefWidth="461.0" style="-fx-background-color: #393838#393838;" BorderPane.alignment="CENTER">
+               <children>
+                  <TextArea layoutX="305.0" layoutY="234.0" prefHeight="33.0" prefWidth="146.0" />
+                  <Button fx:id="result" layoutX="204.0" layoutY="310.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="146.0" stylesheets="@Main.css" text="Result" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Optima Regular" size="13.0" />
+                     </font>
+                  </Button>
+                  <ChoiceBox fx:id="current_currency_choicebox" layoutX="306.0" layoutY="122.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="targret_choicebox" layoutX="306.0" layoutY="187.0" prefWidth="150.0" />
+                  <Label fx:id="title" alignment="CENTER" layoutX="175.0" layoutY="35.0" prefHeight="52.0" prefWidth="203.0" stylesheets="@Main.css" text="Currency Converter" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Optima Regular" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="current_label" layoutX="77.0" layoutY="135.0" stylesheets="@Main.css" text="Current currency" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Optima Regular" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="target_label" layoutX="77.0" layoutY="185.0" text="Target currency" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Optima Regular" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="enter_amont_label" layoutX="77.0" layoutY="245.0" text="Enter your amount:" textFill="#b8b8b8">
+                     <font>
+                        <Font name="Optima Regular" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
