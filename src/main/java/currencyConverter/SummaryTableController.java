@@ -73,7 +73,7 @@ public class SummaryTableController {
         stage.setScene(scene);
         stage.show();
     }
-    
+
 
     @FXML
     private void initialize (){
