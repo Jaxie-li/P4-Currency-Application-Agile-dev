@@ -5,6 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -12,7 +13,10 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert.AlertType;
 
+import javax.swing.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminUserController {
     @FXML
@@ -111,6 +115,21 @@ public class AdminUserController {
 
     }
 
+    @FXML
+    private Button dailyUpdate;
+
+    @FXML
+    private Button updateChanges;
+
+    public void setUpdateChanges(ActionEvent event) throws IOException {
+        Txt updateCsv = new Txt();
+        Date todayDate = new Date();
+        String tmpDate = todayDate.readCsv("Book1.csv");
+        updateCsv.readFile("changes.txt", tmpDate);
+
+    }
+
+    public void setDailyUpdate(ActionEvent event) throws IOException {}
 
 }
 

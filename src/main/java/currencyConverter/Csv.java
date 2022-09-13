@@ -1,8 +1,6 @@
 package currencyConverter;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -57,5 +55,22 @@ public class Csv {
             System.out.println();
         }
     }
+
+    public List<String> csvOutput = new ArrayList<String>();
+    public List<String> readCsv(String filePath) throws IOException {
+        File fileName = new File(filePath);
+
+        InputStreamReader reader = new InputStreamReader(new FileInputStream(fileName));
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        String line = "";
+
+        while ((line = bufferedReader.readLine()) != null) {
+                String[] values = line.split(",");
+                csvOutput.add(line);
+
+        }
+        return csvOutput;
+    }
+
 }
 

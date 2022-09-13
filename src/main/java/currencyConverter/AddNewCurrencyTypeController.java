@@ -57,6 +57,20 @@ public class AddNewCurrencyTypeController {
         System.out.println(tmpRate);
         System.out.println(tmpTarget);
 
+        if (tmpCurrency.isEmpty() || tmpTarget.isEmpty() || tmpRate.isEmpty()){
+            System.out.println("There exists invalid input !");
+
+        } else {
+            Date tmpDate = new Date();
+            String date = tmpDate.readCsv("Book1.csv");
+            String add = "Add";
+            String content = date + "," + add + "," + tmpCurrency + "," + tmpTarget + "," + tmpRate;
+
+            String filePath = "changes.txt";
+            Txt writer = new Txt();
+            writer.writeFile(filePath, content);
+        }
+
     }
     public void returnAdminPage(javafx.event.ActionEvent actionEvent) throws IOException {
         //In the exchange rate page can return the previous page(admin page)

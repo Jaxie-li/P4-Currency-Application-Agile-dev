@@ -5,9 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.SortEvent;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -50,5 +48,34 @@ public class ChangeExchangeRateController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private TextField newRate;
+    @FXML
+    private Button update;
+
+    public void setUpdate(ActionEvent event) throws IOException {
+        String tmpRate = newRate.getText();
+        String originalCurrency = OriginBox.getValue();
+        String targetCurrency = ChangedBox.getValue();
+
+        System.out.println(tmpRate);
+        System.out.println(originalCurrency);
+        System.out.println(targetCurrency);
+
+        if (originalCurrency.isEmpty() || targetCurrency.isEmpty() || tmpRate.isEmpty()){
+            System.out.println("There exists invalid input !");
+
+        } else {
+            Date tmpDate = new Date();
+            String date = tmpDate.readCsv("Book1.csv");
+            String add = "Modified";
+            String content = date + "," + add + "," + originalCurrency + "," + targetCurrency + "," + tmpRate;
+
+            String filePath = "changes.txt";
+            Txt writer = new Txt();
+            writer.writeFile(filePath, content);
+        }
     }
 }
