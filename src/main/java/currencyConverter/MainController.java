@@ -60,27 +60,27 @@ public class MainController {
         stage.show();
     }
 
-//    public void setStage(Stage stage) {
-//        this.stage = stage;
-//    }
-//    public void setCsv(Csv csv) {
-//        this.csv = csv;
-//        int length = this.csv.records.size();
-//        for (int i = 1; i < length; i++) {
-//            current_currency_choicebox.getItems().add(this.csv.records.get(i).get(0));
-//            targret_choicebox.getItems().add(this.csv.records.get(i).get(0));
-//        }
-//    }
-//    public Csv csv;
-//
-//    @FXML
-//    private ChoiceBox<String> current_currency_choicebox;
-//
-//    @FXML
-//    private ChoiceBox<String> targret_choicebox;
-//
-//    @FXML
-//    private void initialize (){
-//    }
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+    public void setCsv(Csv csv) {
+        this.csv = csv;
+        int length = this.csv.records.size();
+        for (int i = 1; i < length; i++) {
+            current_currency_choicebox.getItems().add(this.csv.records.get(i).get(0));
+            targret_choicebox.getItems().add(this.csv.records.get(i).get(0));
+        }
+    }
+    public Csv csv;
+
+    @FXML
+    private ChoiceBox<String> current_currency_choicebox;
+
+    @FXML
+    private ChoiceBox<String> targret_choicebox;
+
+    @FXML
+    private void initialize (){
+    }
 }
 
