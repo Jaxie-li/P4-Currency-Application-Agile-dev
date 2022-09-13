@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.ObtainSummaryController">
-   <VBox prefHeight="364.0" prefWidth="148.0" style="-fx-background-color: #404040;" stylesheets="@Main.css">
+   <VBox prefHeight="404.0" prefWidth="148.0" style="-fx-background-color: #404040;" stylesheets="@Main.css">
       <children>
          <Button fx:id="admin_login" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Admin Login" textFill="#b8b8b8">
             <graphic>
@@ -38,7 +38,7 @@
                </ImageView>
             </graphic>
          </Button>
-         <Button fx:id="summary_table" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToObtainSummaryTable" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Summary table" textFill="#b8b8b8">
+         <Button fx:id="summary_table" disable="true" onAction="#switchToObtainSummaryTable" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Summary table" textFill="#b8b8b8">
             <font>
                <Font name="Optima Regular" size="12.0" />
             </font>

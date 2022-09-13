@@ -38,15 +38,18 @@ public class ObtainSummaryController {
 
     public void backToMain(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/Main.fxml"));
-        root = loader.load();
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Parent root = loader.load();
+        MainController mainController = loader.getController();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        mainController.setStage(stage);
+        Csv csv = new Csv("Book1.csv");
+        mainController.setCsv(csv);
         stage.setScene(scene);
         stage.show();
     }
-
-    public void switchToObtainSummaryTable(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/Main.fxml"));
+    public void switchToSummaryTable(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/SummaryTable.fxml"));
         root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -55,6 +58,20 @@ public class ObtainSummaryController {
     }
 
     @FXML
-    private void initialize () {
+    private void initialize (){
+
+    }
+
+
+    public void setCsv(SortEvent<TableView> tableViewSortEvent) {
+    }
+
+    public void switchToObtainSummaryTable(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/SummaryTable.fxml"));
+        root = loader.load();
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

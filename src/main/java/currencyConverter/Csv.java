@@ -8,14 +8,32 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Csv {
-    public List<List<String>> records = new ArrayList<>();;
+    public List<List<String>> records = new ArrayList<>();
+    
+    public int indexOf(String target) {
+        for (int i = 0; i < this.currencies.length; i++) {
+            if (this.currencies[i].equalsIgnoreCase(target)) return i;
+        }
+        return -1;
+    }
+
+    public String[] currencies;
+
     public Csv(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
+
                 records.add(Arrays.asList(values));
             }
+
+            this.currencies = new String[records.size()-1];
+            for (int i = 0; i < records.size() - 1; i++) {
+                currencies[i] = records.get(i+1).get(1);
+            }
+
+
         } catch (IOException e) {
             throw new RuntimeException(e);}
 //        } catch (FileNotFoundException ex) {

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #404040;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.SummaryTableController">
-    <TableView layoutX="147.0" onSort="#setCsv" prefHeight="400.0" prefWidth="552.0" stylesheets="@Main.css">
+    <TableView layoutX="147.0" prefHeight="400.0" prefWidth="552.0" stylesheets="@Main.css">
       <columns>
           <TableColumn fx:id="current_column" prefWidth="60.0" text="Current" />
           <TableColumn prefWidth="60.0" text="Target" />

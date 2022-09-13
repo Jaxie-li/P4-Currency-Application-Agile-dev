@@ -26,7 +26,6 @@ public class AddNewCurrencyTypeController {
         int length = this.csv.records.size();
         for (int i = 1; i < length; i++) {
             TargetType.getItems().add(this.csv.records.get(i).get(1));
-
         }
     }
     public Csv csv;

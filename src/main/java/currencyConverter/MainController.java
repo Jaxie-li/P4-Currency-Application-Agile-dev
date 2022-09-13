@@ -7,8 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.EventObject;
@@ -19,9 +22,34 @@ public class MainController {
     private Scene scene;
     private Parent root;
 
+    public Csv csv;
+
+    @FXML
+    private ChoiceBox<String> current_currency_choicebox;
+
+    @FXML
+    private ChoiceBox<String> targret_choicebox;
+
+    @FXML
+    private TextArea numberTa;
+
+    @FXML
+    private Label ansLb;
+
+    @FXML
+    private void initialize (){
+    }
+
     // Define events
     public void onclick() {
-        current_currency_choicebox.getValue();
+        String currentCurrency = current_currency_choicebox.getValue();
+        String targetCurrency =  targret_choicebox.getValue();
+        double num = Double.parseDouble(numberTa.getText());
+        int currentIndex = csv.indexOf(currentCurrency);
+        int targetIndex = csv.indexOf(targetCurrency);
+        double rate = Double.parseDouble(csv.records.get(currentIndex+1).get(targetIndex+2));
+        ansLb.setText(String.format("%.2f\n", num * rate));
+//        ansLb.setText("");
     }
 
     public void switchToPopularCurrencyTable(javafx.event.ActionEvent actionEvent) throws IOException {
@@ -61,17 +89,6 @@ public class MainController {
             targret_choicebox.getItems().add(this.csv.records.get(i).get(1));
         }
     }
-    public Csv csv;
-
-    @FXML
-    private ChoiceBox<String> current_currency_choicebox;
-
-    @FXML
-    private ChoiceBox<String> targret_choicebox;
-
-    @FXML
-    private void initialize (){
-    }
 
     public void switchToObtainSummaryTable(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/ObtainSummaryTable.fxml"));
@@ -80,7 +97,6 @@ public class MainController {
         scene = new Scene(root);
         ObtainSummaryController controller = loader.getController();
         controller.setStage(stage);
-        // todo: 读取relative path 的csv
         Csv csv = new Csv("Book1.csv");
         controller.setCsv(csv);
         stage.setScene(scene);
