@@ -6,18 +6,60 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.collections.FXCollections?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.PopularCurrencyController">
     <children>
         <Label layoutX="233.0" layoutY="35.0" text="Most Popular Currencies" />
-        <TableView layoutX="101.0" layoutY="129.0" prefHeight="200.0" prefWidth="398.0">
+        <TableView fx:id ="popular_currency_table" layoutX="101.0" layoutY="129.0" prefHeight="200.0" prefWidth="398.0">
             <columns>
-                <TableColumn editable="false" text="C1" />
-                <TableColumn text="C2" />
-                <TableColumn text="C2" />
-                <TableColumn text="C2" />
-                <TableColumn text="C2" />
+                <TableColumn fx:id="From" text="From/To" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="From"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn fx:id="AUD" text="AUD" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="AUD"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn fx:id="CNY" text="CNY" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="CNY"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="JPY" text="JPY" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="JPY"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="USD" text="USD" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="USD"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="GBP" text="GBP" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="GBP"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="CAD" text="CAD" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="CAD"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="Date" text="Date" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Date"/>
+                    </cellValueFactory>
+                </TableColumn>
             </columns>
+            <items>
+                <FXCollections fx:factory="observableArrayList"/>
+            </items>
         </TableView>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMain" text="Back" />
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMain" text="Back" />
     </children>
 </AnchorPane>
