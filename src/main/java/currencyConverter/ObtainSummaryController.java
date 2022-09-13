@@ -44,8 +44,9 @@ public class ObtainSummaryController {
         stage.setScene(scene);
         stage.show();
     }
-    public void switchToSummaryTable(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/SummaryTable.fxml"));
+
+    public void switchToObtainSummaryTable(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/Main.fxml"));
         root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -54,20 +55,6 @@ public class ObtainSummaryController {
     }
 
     @FXML
-    private void initialize (){
-
-    }
-
-
-    public void setCsv(SortEvent<TableView> tableViewSortEvent) {
-    }
-
-    public void switchToObtainSummaryTable(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/SummaryTable.fxml"));
-        root = loader.load();
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    private void initialize () {
     }
 }

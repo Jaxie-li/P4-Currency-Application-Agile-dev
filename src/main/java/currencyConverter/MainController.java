@@ -46,7 +46,7 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
-    public void switchToObtainSummaryTable(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void switchToObtainSummaryTable(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/ObtainSummaryTable.fxml"));
         Parent root = loader.load();
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
