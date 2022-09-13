@@ -31,8 +31,12 @@ public class LoginAdmin {
     public void returnToMainPage(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/Main.fxml"));
         Parent root = loader.load();
+        MainController mainController = loader.getController();
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        mainController.setStage(stage);
+        Csv csv = new Csv("Book1.csv");
+        mainController.setCsv(csv);
         stage.setScene(scene);
         stage.show();
     }

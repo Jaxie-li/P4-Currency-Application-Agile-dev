@@ -19,7 +19,7 @@ public class MainController {
 
     // Define events
     public void onclick() {
-        System.out.println("button clicked!");
+        current_currency_choicebox.getValue();
     }
 
     public void switchToPopularCurrencyTable(javafx.event.ActionEvent actionEvent) throws IOException {
