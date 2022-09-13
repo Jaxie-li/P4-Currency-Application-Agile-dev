@@ -24,8 +24,8 @@ public class ObtainSummaryController {
         this.csv = csv;
         int length = this.csv.records.size();
         for (int i = 1; i < length; i++) {
-            firstBox.getItems().add(this.csv.records.get(i).get(0));
-            secondBox.getItems().add(this.csv.records.get(i).get(0));
+            firstBox.getItems().add(this.csv.records.get(i).get(1));
+            secondBox.getItems().add(this.csv.records.get(i).get(1));
         }
     }
     public Csv csv;

@@ -26,8 +26,8 @@ public class ChangeExchangeRateController {
         this.csv = csv;
         int length = this.csv.records.size();
         for (int i = 1; i < length; i++) {
-            OriginBox.getItems().add(this.csv.records.get(i).get(0));
-            ChangedBox.getItems().add(this.csv.records.get(i).get(0));
+            OriginBox.getItems().add(this.csv.records.get(i).get(1));
+            ChangedBox.getItems().add(this.csv.records.get(i).get(1));
         }
     }
     public Csv csv;
