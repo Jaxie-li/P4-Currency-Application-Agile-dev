@@ -9,14 +9,12 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.scene.*;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert.AlertType;
 
-import java.awt.*;
 import java.io.IOException;
 
-public class AdminUser {
+public class AdminUserController {
     @FXML
     private javafx.scene.control.Button logoutButton;
     Stage stage;

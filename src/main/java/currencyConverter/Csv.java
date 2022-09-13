@@ -25,8 +25,7 @@ public class Csv {
 //            Logger.getLogger(JavaFXCSVTableView.class.getName())
 //                .log(Level.SEVERE, null, ex);
 //    }
-
-
+        
     }
 
     public void display() {
