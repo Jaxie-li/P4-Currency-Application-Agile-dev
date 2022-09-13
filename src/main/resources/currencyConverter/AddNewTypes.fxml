@@ -4,50 +4,42 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.AddNewCurrency">
-=======
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.AddNewCurrencyTypeController">
->>>>>>> louieG_branch
     <children>
         <Label layoutX="31.0" layoutY="92.0" prefHeight="33.0" prefWidth="145.0" text="New  currency type">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
+        <TextArea layoutX="188.0" layoutY="85.0" prefHeight="47.0" prefWidth="219.0" />
         <Label layoutX="31.0" layoutY="168.0" prefHeight="33.0" prefWidth="145.0" text="Choose convert type">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
-<<<<<<< HEAD
-        <ChoiceBox layoutX="191.0" layoutY="160.0" prefHeight="47.0" prefWidth="219.0" />
-=======
         <ChoiceBox fx:id="TargetType" layoutX="191.0" layoutY="161.0" prefHeight="47.0" prefWidth="219.0" />
->>>>>>> louieG_branch
         <Label layoutX="31.0" layoutY="313.0" prefHeight="33.0" prefWidth="145.0" text="Add date">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
         <DatePicker layoutX="191.0" layoutY="306.0" prefHeight="47.0" prefWidth="219.0" />
-        <Button id="addCurrency" fx:id="addCurrency" layoutX="484.0" layoutY="157.0" mnemonicParsing="false" onAction="#addCurrency" prefHeight="26.0" prefWidth="54.0" text="Add" />
+        <Button layoutX="484.0" layoutY="157.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" text="Add" />
         <Button layoutX="484.0" layoutY="224.0" mnemonicParsing="false" onAction="#returnAdminPage" prefHeight="26.0" prefWidth="54.0" text="Return" />
         <Label layoutX="176.0" layoutY="14.0" prefHeight="33.0" prefWidth="276.0" text="You can add new currency type in here ">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
-      <Label layoutX="31.0" layoutY="244.0" prefHeight="33.0" prefWidth="145.0" text="Currency rate">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="newCurrencyType" layoutX="191.0" layoutY="92.0" prefHeight="33.0" prefWidth="219.0" />
-      <TextField fx:id="currencyRate" layoutX="191.0" layoutY="244.0" prefHeight="33.0" prefWidth="219.0" />
+        <TextArea layoutX="188.0" layoutY="237.0" prefHeight="47.0" prefWidth="219.0" />
+        <Label layoutX="31.0" layoutY="244.0" prefHeight="33.0" prefWidth="145.0" text="Currency rate">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>
