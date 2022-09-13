@@ -46,8 +46,7 @@ public class AddNewCurrencyTypeController {
 
     @FXML
     private TextField newCurrencyType;
-
-
+    
     @FXML
     public void AddCurrency(ActionEvent event) throws IOException {
 
