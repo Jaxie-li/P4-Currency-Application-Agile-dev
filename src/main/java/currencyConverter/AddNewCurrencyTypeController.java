@@ -61,7 +61,7 @@ public class AddNewCurrencyTypeController {
             System.out.println("There exists invalid input !");
 
         } else {
-            Date tmpDate = new Date();
+            readDate tmpDate = new readDate();
             String date = tmpDate.readCsv("Book1.csv");
             String add = "Add";
             String content = date + "," + add + "," + tmpCurrency + "," + tmpTarget + "," + tmpRate;

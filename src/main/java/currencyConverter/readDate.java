@@ -2,7 +2,7 @@ package currencyConverter;
 
 import java.io.*;
 
-public class Date {
+public class readDate {
     public String readCsv(String filePath) throws IOException {
         File fileName = new File(filePath);
 

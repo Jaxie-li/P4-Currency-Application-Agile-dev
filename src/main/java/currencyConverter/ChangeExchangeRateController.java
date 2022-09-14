@@ -68,7 +68,7 @@ public class ChangeExchangeRateController {
             System.out.println("There exists invalid input !");
 
         } else {
-            Date tmpDate = new Date();
+            readDate tmpDate = new readDate();
             String date = tmpDate.readCsv("Book1.csv");
             String add = "Modified";
             String content = date + "," + add + "," + originalCurrency + "," + targetCurrency + "," + tmpRate;

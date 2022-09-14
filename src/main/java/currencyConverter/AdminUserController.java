@@ -15,8 +15,12 @@ import javafx.scene.control.Alert.AlertType;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AdminUserController {
     @FXML
@@ -123,14 +127,24 @@ public class AdminUserController {
 
     public void setUpdateChanges(ActionEvent event) throws IOException {
         Txt updateCsv = new Txt();
-        Date todayDate = new Date();
+        readDate todayDate = new readDate();
         String tmpDate = todayDate.readCsv("Book1.csv");
         updateCsv.readFile("changes.txt", tmpDate);
 
     }
+    public void setDailyUpdate(ActionEvent event) throws IOException, ParseException {
+        readDate todayDate = new readDate();
+        String todayDay = todayDate.readCsv("Book1.csv");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar c = Calendar.getInstance();
+        c.setTime(sdf.parse(todayDay));
+        c.add(Calendar.DATE, 1);
+        todayDay = sdf.format(c.getTime());
+        System.out.println(todayDay);
+    }
 
-    public void setDailyUpdate(ActionEvent event) throws IOException {}
 
-}
+    }
+
 
 

@@ -15,7 +15,11 @@ public class Csv {
         return -1;
     }
 
+
+
     public String[] currencies;
+
+    public String[] dates;
 
     public Csv(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
@@ -31,6 +35,11 @@ public class Csv {
                 currencies[i] = records.get(i+1).get(1);
             }
 
+            this.dates = new String[records.size()];
+            for (int i = 0; i < records.size(); i++){
+                dates[i] = records.get(i).get(0);
+            }
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);}
@@ -44,17 +53,17 @@ public class Csv {
         
     }
 
-    public void display() {
-        for (List<String> l:
-                records) {
-            for (String s:
-                    l) {
-                System.out.print(s);
-                System.out.print(" ");
-            }
-            System.out.println();
-        }
-    }
+//    public void display() {
+//        for (List<String> l:
+//                records) {
+//            for (String s:
+//                    l) {
+//                System.out.print(s);
+//                System.out.print(" ");
+//            }
+//            System.out.println();
+//        }
+//    }
 
     public List<String> csvOutput = new ArrayList<String>();
     public List<String> readCsv(String filePath) throws IOException {
