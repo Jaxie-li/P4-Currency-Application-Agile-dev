@@ -17,6 +17,5 @@
     <Button layoutX="388.0" layoutY="216.0" mnemonicParsing="false" onAction="#returnMainPage" prefHeight="26.0" prefWidth="80.0" text="Return" />
     <Button fx:id="logoutButton" layoutX="388.0" layoutY="287.0" mnemonicParsing="false" onAction="#logout" prefHeight="26.0" prefWidth="80.0" text="Logout" />
     <Button layoutX="54.0" layoutY="62.0" mnemonicParsing="false" onAction="#currencyTypeToSummary" prefHeight="40.0" prefWidth="200.0" text="Currency type " />
-   <Button fx:id="dailyUpdate" layoutX="307.0" layoutY="152.0" mnemonicParsing="false" onAction="#setDailyUpdate" prefHeight="26.0" prefWidth="96.0" text="Daily Update" />
-   <Button fx:id="updateChanges" layoutX="462.0" layoutY="152.0" mnemonicParsing="false" onAction="#setUpdateChanges" text="Update Changes" />
+   <Button fx:id="dailyUpdate" layoutX="367.0" layoutY="131.0" mnemonicParsing="false" onAction="#setDailyUpdate" prefHeight="32.0" prefWidth="115.0" text="Daily Update" />
 </AnchorPane>

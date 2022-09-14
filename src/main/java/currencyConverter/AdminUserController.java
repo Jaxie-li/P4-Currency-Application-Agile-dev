@@ -129,10 +129,11 @@ public class AdminUserController {
         Txt updateCsv = new Txt();
         readDate todayDate = new readDate();
         String tmpDate = todayDate.readCsv("Book1.csv");
-        updateCsv.readFile("changes.txt", tmpDate);
-
+        updateCsv.appliedChanges("changes.txt", tmpDate);
     }
     public void setDailyUpdate(ActionEvent event) throws IOException, ParseException {
+        Txt dailyUpdateWriter = new Txt();
+        dailyUpdateWriter.updateCsv2("Book2.txt");
         readDate todayDate = new readDate();
         String todayDay = todayDate.readCsv("Book1.csv");
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -140,11 +141,15 @@ public class AdminUserController {
         c.setTime(sdf.parse(todayDay));
         c.add(Calendar.DATE, 1);
         todayDay = sdf.format(c.getTime());
-        System.out.println(todayDay);
+        System.out.println(todayDay);   
+
     }
 
 
-    }
+
+
+
+}
 
 
 
