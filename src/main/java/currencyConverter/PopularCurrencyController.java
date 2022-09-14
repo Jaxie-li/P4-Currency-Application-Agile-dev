@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -32,60 +33,44 @@ import java.util.List;
 public class PopularCurrencyController{
 
     @FXML
-    private TableView<Currency> popular_currency_table;
+    private TableView<PopularCurrency> popular_currency_table;
 
     @FXML
-    private TableColumn<Currency,String> From;
+    private TableColumn<PopularCurrency, String> fromTc, aTc, bTc, cTc, dTc;
 
-    @FXML
-    private TableColumn<Currency,String> AUD;
-
-    @FXML
-    private TableColumn<Currency,String> CNY;
-
-    @FXML
-    private TableColumn<Currency,String> JPY;
-
-    @FXML
-    private TableColumn<Currency,String> USD;
-
-    @FXML
-    private TableColumn<Currency,String> GBP;
-
-    @FXML
-    private TableColumn<Currency,String> CAD;
-
-    @FXML
-    private TableColumn<Currency,String> Date;
-
-    private final ObservableList<Currency> popularCurrency_list = FXCollections.observableArrayList();
-    private final List<Currency> currencyList = new ArrayList<>();
-    private final Path path = Paths.get("Book1.csv");
+    private final ObservableList<PopularCurrency> popularCurrency_list = FXCollections.observableArrayList();
+    private final List<PopularCurrency> currencyList = new ArrayList<>();
+    private final Path path = Paths.get("Popular.txt");
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     @FXML
     private void initialize()throws IOException{
-        From.setCellValueFactory (new PropertyValueFactory<Currency,String>("From"));
-        AUD.setCellValueFactory (new PropertyValueFactory<Currency,String>("AUD"));
-        CNY.setCellValueFactory (new PropertyValueFactory<Currency,String>("CNY"));
-        JPY.setCellValueFactory (new PropertyValueFactory<Currency,String>("JPY"));
-        USD.setCellValueFactory (new PropertyValueFactory<Currency,String>("USD"));
-        GBP.setCellValueFactory (new PropertyValueFactory<Currency,String>("GBP"));
-        CAD.setCellValueFactory (new PropertyValueFactory<Currency,String>("CAD"));
-        Date.setCellValueFactory (new PropertyValueFactory<Currency,String>("Date"));
+        fromTc.setCellValueFactory (new PropertyValueFactory<>("from"));
+        aTc.setCellValueFactory (new PropertyValueFactory<>("currencyA"));
+        bTc.setCellValueFactory (new PropertyValueFactory<>("currencyB"));
+        cTc.setCellValueFactory (new PropertyValueFactory<>("currencyC"));
+        dTc.setCellValueFactory (new PropertyValueFactory<>("currencyD"));
 
         popular_currency_table.setItems(popularCurrency_list);
         popular_currency_table.setEditable(true);
 
         List<String> lines = Files.readAllLines(path);
+        String[] titles = new String[4];
+        int count = 0;
         for (String line :lines.subList(1,lines.size())){
-            String[] tmp = line.split(",");
-            System.out.println(tmp[0]);
-            popularCurrency_list.add(new Currency(tmp[0],tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7]));
+            String[] tokens = line.split(",");
+            titles[count] = tokens[0];
+            PopularCurrency temp = new PopularCurrency(tokens);
+            System.out.println(temp);
+            popularCurrency_list.add(temp);
+            count++;
         }
-
+        aTc.setText(titles[0]);
+        bTc.setText(titles[1]);
+        cTc.setText(titles[2]);
+        dTc.setText(titles[3]);
 
     }
     public void generateExchangeRate() {

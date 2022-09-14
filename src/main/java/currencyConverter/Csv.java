@@ -19,8 +19,6 @@ public class Csv {
 
     public String[] currencies;
 
-    public String[] dates;
-
     public Csv(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
@@ -33,11 +31,6 @@ public class Csv {
             this.currencies = new String[records.size()-1];
             for (int i = 0; i < records.size() - 1; i++) {
                 currencies[i] = records.get(i+1).get(1);
-            }
-
-            this.dates = new String[records.size()];
-            for (int i = 0; i < records.size(); i++){
-                dates[i] = records.get(i).get(0);
             }
 
 
