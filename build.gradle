@@ -3,6 +3,7 @@ plugins {
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'org.beryx.jlink' version '2.25.0'
+    id 'jacoco'
 }
 
 group 'com'
@@ -28,7 +29,7 @@ application {
 }
 
 javafx {
-    version = '18.0.2'
+    version = '17.0.2'
     modules = ['javafx.controls', 'javafx.fxml']
 }
 
@@ -40,6 +41,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    test.finalizedBy jacocoTestReport // After gradle run, do gradle jacocoTestReport. It is to say it will auto generate jacocoTestReport
 }
 
 jlink {
@@ -52,5 +54,23 @@ jlink {
 
 jlinkZip {
     group = 'distribution'
+}
+
+jacocoTestReport{
+    reports{
+        html.required = true
+        csv.required = true
+    }
+
+    //Exclude all GUI Related test coverage
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['currencyConverter/controller/*'])
+        }))
+    }
+}
+//Provide Stable Test Environment
+task replace(type:Exec){
+    commandLine './test.sh'
 }
 

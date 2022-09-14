@@ -7,8 +7,31 @@ import java.util.List;
 
 public class CSV {
     public List<List<String>> records = new ArrayList<>();
+    public List<String> csvOutput = new ArrayList<String>();
     public String[] currencies;
 
+
+
+
+
+    public CSV(String path) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(path));
+        String line;
+        while ((line = br.readLine()) != null) {
+
+            if(line.length()==0){break;}
+
+            String[] values = line.split(",");
+
+            records.add(Arrays.asList(values));
+        }
+
+        this.currencies = new String[records.size()-1];
+        for (int i = 0; i < records.size() - 1; i++) {
+            currencies[i] = records.get(i+1).get(1);
+        }
+
+    }
 
     public int indexOf(String target) {
         for (int i = 0; i < this.currencies.length; i++) {
@@ -17,32 +40,6 @@ public class CSV {
         return -1;
     }
 
-
-
-    public CSV(String path) {
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-
-                if(line.length()==0){break;}
-
-                String[] values = line.split(",");
-
-                records.add(Arrays.asList(values));
-            }
-
-            this.currencies = new String[records.size()-1];
-            for (int i = 0; i < records.size() - 1; i++) {
-                currencies[i] = records.get(i+1).get(1);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        
-    }
-
-
-    public List<String> csvOutput = new ArrayList<String>();
     public List<String> readCsv(String filePath) throws IOException {
         File fileName = new File(filePath);
 

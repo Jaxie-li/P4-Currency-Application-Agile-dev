@@ -18,6 +18,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class ObtainPopularTableController {
+    public ObtainPopularTableController() throws IOException {
+    }
+
     public void setStage(Stage stage) {
         this.stage = stage;
     }
