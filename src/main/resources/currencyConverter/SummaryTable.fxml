@@ -2,27 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #404040;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.SummaryTableController">
-    <TableView layoutX="147.0" prefHeight="400.0" prefWidth="552.0" stylesheets="@Main.css">
-      <columns>
-          <TableColumn fx:id="current_column" prefWidth="60.0" text="Current" />
-          <TableColumn prefWidth="60.0" text="Target" />
-          <TableColumn prefWidth="60.0" text="Date" />
-          <TableColumn prefWidth="60.0" text="Rate" />
-          <TableColumn prefWidth="60.0" text="Mean" />
-          <TableColumn prefWidth="60.0" text="Max" />
-          <TableColumn prefWidth="60.0" text="Min" />
-          <TableColumn prefWidth="135.0" text="Standard deviation" />
-      </columns>
-    </TableView>
    <VBox prefHeight="364.0" prefWidth="148.0" style="-fx-background-color: #404040;" stylesheets="@Main.css">
       <children>
          <Button fx:id="admin_login" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Admin Login" textFill="#b8b8b8">
@@ -78,4 +66,32 @@
          <Insets />
       </opaqueInsets>
    </Button>
+   <Text fill="#fcfcfc" layoutX="173.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Starting Date" />
+   <TextField fx:id="startingDate" layoutX="260.0" layoutY="10.0" prefHeight="26.0" prefWidth="105.0" />
+   <TextField fx:id="endingDate" layoutX="260.0" layoutY="58.0" prefHeight="26.0" prefWidth="105.0" />
+   <Text fill="#fcfcfc" layoutX="175.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ending Date" />
+   <Text fill="#fcfcfc" layoutX="399.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Text>
+   <Text fill="#fcfcfc" layoutX="512.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Text>
+   <TextField fx:id="tmpCurrency" layoutX="442.0" layoutY="32.0" prefHeight="26.0" prefWidth="50.0" />
+   <TextField fx:id="targetCurrency" layoutX="543.0" layoutY="32.0" prefHeight="26.0" prefWidth="50.0" />
+   <TextField fx:id="median" layoutX="313.0" layoutY="110.0" prefHeight="26.0" prefWidth="105.0" />
+   <Text fill="#fcfcfc" layoutX="249.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Median" wrappingWidth="45.51904296875" />
+   <Text fill="#fcfcfc" layoutX="260.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max" />
+   <TextField fx:id="mmax" layoutX="313.0" layoutY="162.0" prefHeight="26.0" prefWidth="105.0" />
+   <Text fill="#fcfcfc" layoutX="263.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />
+   <TextField fx:id="mmin" layoutX="313.0" layoutY="213.0" prefHeight="26.0" prefWidth="105.0" />
+   <Text fill="#fcfcfc" layoutX="249.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average" />
+   <TextField fx:id="mean" layoutX="313.0" layoutY="261.0" prefHeight="26.0" prefWidth="105.0" />
+   <Text fill="WHITE" layoutX="161.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Rates" />
+   <TextField fx:id="allRates" layoutX="233.0" layoutY="331.0" prefHeight="26.0" prefWidth="402.0" />
+   <Text fill="#fcfcfc" layoutX="535.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SD" />
+   <TextField fx:id="sd" layoutX="491.0" layoutY="188.0" prefHeight="26.0" prefWidth="105.0" />
 </AnchorPane>

@@ -38,7 +38,7 @@
                </ImageView>
             </graphic>
          </Button>
-         <Button fx:id="summary_table" disable="true" onAction="#switchToObtainSummaryTable" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Summary table" textFill="#b8b8b8">
+         <Button fx:id="summary_table" alignment="BOTTOM_LEFT" disable="true" mnemonicParsing="false" onAction="#switchToObtainSummaryTable" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Summary table" textFill="#b8b8b8">
             <font>
                <Font name="Optima Regular" size="12.0" />
             </font>
@@ -58,8 +58,8 @@
          <Label layoutX="56.0" layoutY="69.0" text="Current currency" />
          <ChoiceBox fx:id="secondBox" layoutX="310.0" layoutY="130.0" prefHeight="23.0" prefWidth="150.0" />
          <ChoiceBox fx:id="firstBox" layoutX="56.0" layoutY="130.0" prefWidth="150.0" />
-         <DatePicker layoutX="55.0" layoutY="229.0" />
-         <DatePicker layoutX="310.0" layoutY="229.0" />
+         <DatePicker fx:id="startDate" layoutX="55.0" layoutY="229.0" />
+         <DatePicker fx:id="endDate" layoutX="310.0" layoutY="229.0" />
          <Label layoutX="310.0" layoutY="192.0" text="End date:" />
          <Label layoutX="56.0" layoutY="192.0" text="Start date:" />
          <Button fx:id="generateButton" layoutX="164.0" layoutY="318.0" mnemonicParsing="false" onAction="#switchToSummaryTable" prefHeight="45.0" prefWidth="185.0" text="Generate currency summary" textAlignment="CENTER" textFill="#b8b8b8">

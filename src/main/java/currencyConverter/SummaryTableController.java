@@ -7,7 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -62,4 +62,45 @@ public class SummaryTableController {
     private void initialize (){
 
     }
+
+    @FXML
+    private TextField startingDate;
+    @FXML
+    private TextField endingDate;
+    @FXML
+    private TextField tmpCurrency;
+    @FXML
+    private TextField targetCurrency;
+    @FXML
+    private TextField median;
+    @FXML
+    private TextField mmax;
+    @FXML
+    private TextField mmin;
+    @FXML
+    private TextField mean;
+    @FXML
+    private TextField sd;
+    @FXML
+    private TextField allRates;
+
+    public void displayAllValues(String starting, String ending,
+                                 String tmp, String target,
+                                 String mmedian, String max,
+                                 String min, String mmean,
+                                 String standard, String all) {
+        startingDate.setText(starting);
+        endingDate.setText(ending);
+        tmpCurrency.setText(tmp);
+        targetCurrency.setText(target);
+        median.setText(mmedian);
+        mmax.setText(max);
+        mmin.setText(min);
+        sd.setText(standard);
+        allRates.setText(all);
+
+    }
+
+
+
 }
