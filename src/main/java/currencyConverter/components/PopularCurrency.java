@@ -1,4 +1,4 @@
-package currencyConverter;
+package currencyConverter.components;
 
 public class PopularCurrency {
     private String from;

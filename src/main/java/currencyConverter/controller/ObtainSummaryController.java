@@ -1,4 +1,6 @@
-package currencyConverter;
+package currencyConverter.controller;
+import currencyConverter.ultils.CSV;
+import currencyConverter.ultils.ReadDate;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +30,7 @@ public class ObtainSummaryController {
     private Scene scene;
     private Parent root;
 
-    public void setCsv(Csv csv) {
+    public void setCsv(CSV csv) {
         this.csv = csv;
         int length = this.csv.records.size();
         for (int i = 1; i < length; i++) {
@@ -36,7 +38,7 @@ public class ObtainSummaryController {
             secondBox.getItems().add(this.csv.records.get(i).get(1));
         }
     }
-    public Csv csv;
+    public CSV csv;
 
     @FXML
     private ChoiceBox<String> firstBox;
@@ -57,7 +59,7 @@ public class ObtainSummaryController {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         mainController.setStage(stage);
-        Csv csv = new Csv("Book1.csv");
+        CSV csv = new CSV("Book1.csv");
         mainController.setCsv(csv);
         stage.setScene(scene);
         stage.show();
@@ -145,15 +147,15 @@ public class ObtainSummaryController {
     }
 
     public List<String> generateSummaryData(String starting, String ending, String tmpCur, String targetCur) throws IOException, ParseException {
-        Csv readCsv1 = new Csv("Book1.csv");
-        Csv readCsv2 = new Csv("Book2.txt");
+        CSV readCsv1 = new CSV("Book1.csv");
+        CSV readCsv2 = new CSV("Book2.txt");
         List<String> output1 = new ArrayList<>();
         List<String> output2 = new ArrayList<>();
 
         output1 = readCsv1.readCsv("Book1.csv");
         output2 = readCsv2.readCsv("Book2.txt");
 
-        readDate converter = new readDate();
+        ReadDate converter = new ReadDate();
         String validStarting = converter.convertDate(starting);
         String validEnding = converter.convertDate(ending);
 

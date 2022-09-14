@@ -8,7 +8,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.PopularCurrencyController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.controller.PopularCurrencyController">
     <children>
         <Label layoutX="233.0" layoutY="35.0" text="Most Popular Currencies" />
         <TableView fx:id="popular_currency_table" layoutX="101.0" layoutY="129.0" prefHeight="200.0" prefWidth="400.0">

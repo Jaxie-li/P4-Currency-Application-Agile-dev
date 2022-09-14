@@ -1,6 +1,7 @@
 package currencyConverter;
 
-import com.sun.tools.javac.Main;
+import currencyConverter.controller.MainController;
+import currencyConverter.ultils.CSV;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,9 +11,6 @@ import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.io.IOError;
 import java.io.IOException;
 
 
@@ -35,7 +33,7 @@ public class LoginAdmin {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         mainController.setStage(stage);
-        Csv csv = new Csv("Book1.csv");
+        CSV csv = new CSV("Book1.csv");
         mainController.setCsv(csv);
         stage.setScene(scene);
         stage.show();

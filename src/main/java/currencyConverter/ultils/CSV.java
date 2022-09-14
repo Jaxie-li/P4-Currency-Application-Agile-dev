@@ -1,13 +1,15 @@
-package currencyConverter;
+package currencyConverter.ultils;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Csv {
+public class CSV {
     public List<List<String>> records = new ArrayList<>();
-    
+    public String[] currencies;
+
+
     public int indexOf(String target) {
         for (int i = 0; i < this.currencies.length; i++) {
             if (this.currencies[i].equalsIgnoreCase(target)) return i;
@@ -17,12 +19,13 @@ public class Csv {
 
 
 
-    public String[] currencies;
-
-    public Csv(String path) {
+    public CSV(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = br.readLine()) != null) {
+
+                if(line.length()==0){break;}
+
                 String[] values = line.split(",");
 
                 records.add(Arrays.asList(values));
@@ -32,31 +35,12 @@ public class Csv {
             for (int i = 0; i < records.size() - 1; i++) {
                 currencies[i] = records.get(i+1).get(1);
             }
-
-
         } catch (IOException e) {
-            throw new RuntimeException(e);}
-//        } catch (FileNotFoundException ex) {
-//            Logger.getLogger(JavaFXCSVTableView.class.getName())
-//                .log(Level.SEVERE, null, ex);
-//        } catch (IOException ex) {
-//            Logger.getLogger(JavaFXCSVTableView.class.getName())
-//                .log(Level.SEVERE, null, ex);
-//    }
+            throw new RuntimeException(e);
+        }
         
     }
 
-//    public void display() {
-//        for (List<String> l:
-//                records) {
-//            for (String s:
-//                    l) {
-//                System.out.print(s);
-//                System.out.print(" ");
-//            }
-//            System.out.println();
-//        }
-//    }
 
     public List<String> csvOutput = new ArrayList<String>();
     public List<String> readCsv(String filePath) throws IOException {

@@ -1,48 +1,16 @@
 package currencyConverter;
 
+import currencyConverter.controller.MainController;
+import currencyConverter.ultils.CSV;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
-import java.io.IOException;
-
 public class CurrencyConverterApp extends Application {
-
-//    public void setStage(Stage stage) {
-//        this.stage = stage;
-//    }
-//    private Stage stage;
-//    private Scene scene;
-//    private Parent root;
-//
-//    public void setCsv(Csv csv) {
-//        this.csv = csv;
-//        int length = this.csv.records.size();
-//        for (int i = 1; i < length; i++) {
-//            current_currency_choicebox.getItems().add(this.csv.records.get(i).get(0));
-//            targret_choicebox.getItems().add(this.csv.records.get(i).get(0));
-//        }
-//    }
-//    public Csv csv;
-//
-//    @FXML
-//    private ChoiceBox<String> current_currency_choicebox;
-//
-//   @FXML
-//    private ChoiceBox<String> targret_choicebox;
-//
-//    @FXML
-//    private void initialize (){
-//    }
-
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -59,7 +27,7 @@ public class CurrencyConverterApp extends Application {
         stage.show();
 
         mainController.setStage(stage);
-        Csv csv = new Csv("Book1.csv");
+        CSV csv = new CSV("Book1.csv");
         mainController.setCsv(csv);
         stage.setScene(scene);
         stage.show();
@@ -83,7 +51,8 @@ public class CurrencyConverterApp extends Application {
         if(alter.showAndWait().get()== ButtonType.OK){
             System.out.println("you Successfully logged out.");
             stage.close();
-        }}
+        }
+    }
 
 
     public static void main(String[] args) {

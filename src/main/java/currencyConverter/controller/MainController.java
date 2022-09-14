@@ -1,5 +1,6 @@
-package currencyConverter;
+package currencyConverter.controller;
 
+import currencyConverter.ultils.CSV;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,10 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.util.EventObject;
 
 public class MainController {
     public Button summaryTable;
@@ -22,7 +20,7 @@ public class MainController {
     private Scene scene;
     private Parent root;
 
-    public Csv csv;
+    public CSV csv;
 
     @FXML
     private ChoiceBox<String> current_currency_choicebox;
@@ -80,7 +78,7 @@ public class MainController {
     public void setStage(Stage stage) {
         this.stage = stage;
     }
-    public void setCsv(Csv csv) {
+    public void setCsv(CSV csv) {
         this.csv = csv;
         int length = this.csv.records.size();
         for (int i = 1 ; i < length; i++) {
@@ -97,7 +95,7 @@ public class MainController {
         scene = new Scene(root);
         ObtainSummaryController controller = loader.getController();
         controller.setStage(stage);
-        Csv csv = new Csv("Book1.csv");
+        CSV csv = new CSV("Book1.csv");
         controller.setCsv(csv);
         stage.setScene(scene);
         stage.show();

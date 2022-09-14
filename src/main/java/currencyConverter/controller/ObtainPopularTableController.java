@@ -1,5 +1,7 @@
-package currencyConverter;
+package currencyConverter.controller;
 
+import currencyConverter.ultils.CSV;
+import currencyConverter.ultils.TXT;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +16,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Arrays;
 
 public class ObtainPopularTableController {
     public void setStage(Stage stage) {
@@ -24,7 +25,7 @@ public class ObtainPopularTableController {
     private Scene scene;
     private Parent root;
     private final Path path = Paths.get("Popular.txt");
-    private Csv csv = new Csv("book1.csv");
+    private CSV csv = new CSV("book1.csv");
 
     @FXML
     private ChoiceBox<String> incomingChoiceBox;
@@ -65,7 +66,7 @@ public class ObtainPopularTableController {
 
         List<String> lines = Files.readAllLines(path);
         
-        Txt writer = new Txt();
+        TXT writer = new TXT();
         //write to Popular.txt
         writer.writeFile2("Popular.txt", lines.get(0).replace(out, in));
 

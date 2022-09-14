@@ -1,4 +1,7 @@
-package currencyConverter;
+package currencyConverter.controller;
+import currencyConverter.ultils.CSV;
+import currencyConverter.ultils.ReadDate;
+import currencyConverter.ultils.TXT;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +23,7 @@ public class ChangeExchangeRateController {
 
     private Parent root;
 
-    public void setCsv(Csv csv) {
+    public void setCsv(CSV csv) {
         this.csv = csv;
         int length = this.csv.records.size();
         for (int i = 1; i < length; i++) {
@@ -28,7 +31,7 @@ public class ChangeExchangeRateController {
             ChangedBox.getItems().add(this.csv.records.get(i).get(1));
         }
     }
-    public Csv csv;
+    public CSV csv;
 
     @FXML
     private ChoiceBox<String> OriginBox;
@@ -68,17 +71,17 @@ public class ChangeExchangeRateController {
             System.out.println("There exists invalid input !");
 
         } else {
-            readDate tmpReadDate = new readDate();
+            ReadDate tmpReadDate = new ReadDate();
             String date = tmpReadDate.readCsv("Book1.csv");
             String add = "Modified";
             String content = date + "," + add + "," + originalCurrency + "," + targetCurrency + "," + tmpRate;
 
             String filePath = "changes.txt";
-            Txt writer = new Txt();
+            TXT writer = new TXT();
             writer.writeFile(filePath, content);
             // 根据change.txt里的targetC 和 currentC 来改变 popularC的 趋势
-            Txt updateCsv = new Txt();
-            readDate todayReadDate = new readDate();
+            TXT updateCsv = new TXT();
+            ReadDate todayReadDate = new ReadDate();
             String checkDate = todayReadDate.readCsv("Book1.csv");
             updateCsv.appliedChanges("changes.txt", checkDate);
         }
@@ -89,7 +92,7 @@ public class ChangeExchangeRateController {
         scene = new Scene(root);
         ChangeExchangeRateController controller = loader.getController();
         controller.setStage(stage);
-        Csv csv = new Csv("Book1.csv");
+        CSV csv = new CSV("Book1.csv");
         controller.setCsv(csv);
         stage.setScene(scene);
         stage.show();

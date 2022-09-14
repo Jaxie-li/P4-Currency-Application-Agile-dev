@@ -1,8 +1,8 @@
-package currencyConverter;
+package currencyConverter.ultils;
 
 import java.io.*;
 
-public class readDate {
+public class ReadDate {
     public String readCsv(String filePath) throws IOException {
         File fileName = new File(filePath);
 

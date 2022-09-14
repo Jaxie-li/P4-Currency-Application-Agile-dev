@@ -1,4 +1,7 @@
-package currencyConverter;
+package currencyConverter.controller;
+import currencyConverter.ultils.CSV;
+import currencyConverter.ultils.ReadDate;
+import currencyConverter.ultils.TXT;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -7,20 +10,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert.AlertType;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class AdminUserController {
     @FXML
@@ -36,7 +35,7 @@ public class AdminUserController {
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         mainController.setStage(stage);
-        Csv csv = new Csv("Book1.csv");
+        CSV csv = new CSV("Book1.csv");
         mainController.setCsv(csv);
         stage.setScene(scene);
         stage.show();
@@ -87,7 +86,7 @@ public class AdminUserController {
         scene = new Scene(root);
         ChangeExchangeRateController controller = loader.getController();
         controller.setStage(stage);
-        Csv csv = new Csv("Book1.csv");
+        CSV csv = new CSV("Book1.csv");
         controller.setCsv(csv);
         stage.setScene(scene);
         stage.show();
@@ -114,7 +113,7 @@ public class AdminUserController {
         scene = new Scene(root);
         AddNewCurrencyTypeController controller = loader.getController();
         controller.setStage(stage);
-        Csv csv = new Csv("Book1.csv");
+        CSV csv = new CSV("Book1.csv");
         controller.setCsv(csv);
         stage.setScene(scene);
         stage.show();
@@ -129,9 +128,9 @@ public class AdminUserController {
 
 
     public void setDailyUpdate(ActionEvent event) throws IOException, ParseException {
-        Txt dailyUpdateWriter = new Txt();
+        TXT dailyUpdateWriter = new TXT();
         dailyUpdateWriter.updateCsv2("Book2.txt");
-        readDate todayDate = new readDate();
+        ReadDate todayDate = new ReadDate();
         String todayDay = todayDate.readCsv("Book1.csv");
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -141,9 +140,9 @@ public class AdminUserController {
         todayDay = sdf.format(c.getTime());
         System.out.println(todayDay);
 
-        Csv csvReader = new Csv("Book1.csv");
+        CSV csvReader = new CSV("Book1.csv");
         List<String> csvOutput = csvReader.readCsv("Book1.csv");
-        Txt writer = new Txt();
+        TXT writer = new TXT();
 
         List<String> newCsv = new ArrayList<>();
 

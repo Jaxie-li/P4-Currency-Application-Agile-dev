@@ -1,11 +1,11 @@
-package currencyConverter;
+package currencyConverter.ultils;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Txt {
+public class TXT {
 
     public void writeFile(String filePath, String content) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath, true));
@@ -34,7 +34,7 @@ public class Txt {
         BufferedReader bufferedReader = new BufferedReader(reader);
         String line = "";
 
-        Csv csvReader = new Csv("Book1.csv");
+        CSV csvReader = new CSV("Book1.csv");
         List<String> csvOutput = csvReader.readCsv("Book1.csv");
 
         while ((line = bufferedReader.readLine()) != null) {
@@ -151,7 +151,7 @@ public class Txt {
                     }
 
                 }
-                Txt writer = new Txt();
+                TXT writer = new TXT();
                 for (int i = 0; i < newCsv.size(); i++) {
                     if (i == 0) {
                         writer.writeFile2("Book1.csv", newCsv.get(i));
@@ -166,9 +166,9 @@ public class Txt {
     }
 
     public void updateCsv2(String filePath) throws IOException {
-        Csv csvReader = new Csv("Book1.csv");
+        CSV csvReader = new CSV("Book1.csv");
         List<String> csvOutput = csvReader.readCsv("Book1.csv");
-        Txt writer = new Txt();
+        TXT writer = new TXT();
         for (String s: csvOutput) {
             writer.writeFile(filePath, s);
         }

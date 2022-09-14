@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="adminPage" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.AdminUserController">
+<AnchorPane fx:id="adminPage" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.controller.AdminUserController">
     <Button layoutX="54.0" layoutY="293.0" mnemonicParsing="false" onAction="#SwitchToAddNewCurrencyType" prefHeight="40.0" prefWidth="200.0" text="Add new currency type" />
     <Button layoutX="54.0" layoutY="209.0" mnemonicParsing="false" onAction="#SwitchToRatesHistory" prefHeight="40.0" prefWidth="200.0" text="Rates History" />
     <Button layoutX="54.0" layoutY="131.0" mnemonicParsing="false" onAction="#SwitchExchangeRate" prefHeight="40.0" prefWidth="200.0" text="Exchange rate" />

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.ObtainSummaryController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.controller.ObtainSummaryController">
    <VBox prefHeight="404.0" prefWidth="148.0" style="-fx-background-color: #404040;" stylesheets="@Main.css">
       <children>
          <Button fx:id="admin_login" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Admin Login" textFill="#b8b8b8">
@@ -38,7 +38,7 @@
                </ImageView>
             </graphic>
          </Button>
-         <Button fx:id="summary_table" disable="true" onAction="#switchToObtainSummaryTable" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Summary table" textFill="#b8b8b8">
+         <Button fx:id="summary_table" alignment="BOTTOM_LEFT" disable="true" mnemonicParsing="false" onAction="#switchToObtainSummaryTable" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Summary table" textFill="#b8b8b8">
             <font>
                <Font name="Optima Regular" size="12.0" />
             </font>
@@ -58,8 +58,8 @@
          <Label layoutX="56.0" layoutY="69.0" text="Current currency" />
          <ChoiceBox fx:id="secondBox" layoutX="310.0" layoutY="130.0" prefHeight="23.0" prefWidth="150.0" />
          <ChoiceBox fx:id="firstBox" layoutX="56.0" layoutY="130.0" prefWidth="150.0" />
-         <DatePicker layoutX="55.0" layoutY="229.0" />
-         <DatePicker layoutX="310.0" layoutY="229.0" />
+         <DatePicker fx:id="startDate" layoutX="55.0" layoutY="229.0" />
+         <DatePicker fx:id="endDate" layoutX="310.0" layoutY="229.0" />
          <Label layoutX="310.0" layoutY="192.0" text="End date:" />
          <Label layoutX="56.0" layoutY="192.0" text="Start date:" />
          <Button fx:id="generateButton" layoutX="164.0" layoutY="318.0" mnemonicParsing="false" onAction="#switchToSummaryTable" prefHeight="45.0" prefWidth="185.0" text="Generate currency summary" textAlignment="CENTER" textFill="#b8b8b8">
