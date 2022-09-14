@@ -96,6 +96,7 @@ public class SummaryTableController {
         median.setText(mmedian);
         mmax.setText(max);
         mmin.setText(min);
+        mean.setText(mmean);
         sd.setText(standard);
         allRates.setText(all);
 

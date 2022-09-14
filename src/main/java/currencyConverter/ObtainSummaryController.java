@@ -15,9 +15,10 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+
 
 public class ObtainSummaryController {
     public void setStage(Stage stage) {
@@ -67,10 +68,35 @@ public class ObtainSummaryController {
 
         String tmpCur = String.valueOf(firstBox.getValue());
         String targetCur = String.valueOf(secondBox.getValue());
-        System.out.println("line70");
-        generateSummaryData(starting, ending, tmpCur, targetCur);
+
+        List<String> rateList = generateSummaryData(starting, ending, tmpCur, targetCur);
+
+        String mmax = Collections.max(rateList);
+        String mmin = Collections.min(rateList);
+
+        ArrayList<Double> doubleRateList = new ArrayList<>();
+        double sum = 0;
+        for (String s: rateList) {
+            doubleRateList.add(Double.parseDouble(s));
+            sum += Double.parseDouble(s);
+        }
+
+        double doubleMean = (double) (sum / rateList.size());
+        String avg = String.format("%.2f", doubleMean);
+
+        String median = Double.toString(Median(doubleRateList));
+
+        Double doubleSD = calculateSD(doubleRateList);
+        String sd = String.format("%.4f", doubleSD);
+
+        String allRates = rateList.toString();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/SummaryTable.fxml"));
         root = loader.load();
+
+        SummaryTableController summaryTableController = loader.getController();
+        summaryTableController.displayAllValues(starting, ending, tmpCur, targetCur,
+                median, mmax, mmin, avg, sd, allRates);
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -82,7 +108,6 @@ public class ObtainSummaryController {
 
     }
 
-
     public void setCsv(SortEvent<TableView> tableViewSortEvent) {
     }
 
@@ -91,25 +116,35 @@ public class ObtainSummaryController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/SummaryTable.fxml"));
         root = loader.load();
 
-//        SummaryTableController summaryTableController = loader.getController();
-//        summaryTableController.displayAllValues();
-
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-//    public void getStartDate(ActionEvent event) throws IOException {
-//
-//        System.out.println(starting);
-//    }
-//
-//    public void getEndDate(ActionEvent event) throws IOException {
-//        String ending = String.valueOf(endDate.getValue());
-//        System.out.println(ending);
-//    }
-    public void generateSummaryData(String starting, String ending, String tmpCur, String targetCur) throws IOException, ParseException {
+    public List<String> getAllRates(List<String> output, Date start, Date end,
+                                    Integer targetIndex, String tmpCur) throws ParseException {
+
+        List<String> rateList = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        for (String s : output) {
+            String[] line = s.split(",");
+
+            if (!line[0].equals("DATE")) {
+                Date tmp = sdf.parse(line[0]);
+                if ((tmp.after(start) && tmp.before(end)) || tmp.equals(start) || tmp.equals(end)) {
+
+                    if (line[1].equals(tmpCur)) {
+                        System.out.println(line[targetIndex]);
+                        rateList.add(line[targetIndex]);
+                    }
+                }
+            }
+        }
+        return rateList;
+    }
+
+    public List<String> generateSummaryData(String starting, String ending, String tmpCur, String targetCur) throws IOException, ParseException {
         Csv readCsv1 = new Csv("Book1.csv");
         Csv readCsv2 = new Csv("Book2.txt");
         List<String> output1 = new ArrayList<>();
@@ -121,43 +156,68 @@ public class ObtainSummaryController {
         readDate converter = new readDate();
         String validStarting = converter.convertDate(starting);
         String validEnding = converter.convertDate(ending);
-        System.out.println("line124");
+
         // get the target currency index
         int targetIndex = 0;
         String[] firstLine = output1.get(0).split(",");
         for (int i = 0; i < firstLine.length; i++) {
-            if (firstLine[i].equals(targetCur)){
+            if (firstLine[i].equals(targetCur)) {
                 targetIndex = i;
             }
         }
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Calendar c = Calendar.getInstance();
 
         Date start = sdf.parse(validStarting);
         Date end = sdf.parse(validEnding);
 
-        List<String> rateList = new ArrayList<>();
+        List<String> rateList1 = new ArrayList<>();
+        List<String> rateList2 = new ArrayList<>();
         // searching the book2.txt file
 
-        for (int i = 0; i < output2.size(); i++) {
-            String[] line = output2.get(i).split(",");
+        rateList2 = getAllRates(output2, start, end, targetIndex, tmpCur);
+        rateList1 = getAllRates(output1, start, end, targetIndex, tmpCur);
 
-            if (!line[0].equals("DATE")) {
-                Date tmp = sdf.parse(line[0]);
-                System.out.println("line 148");
-                System.out.println(start);
-//                System.out.println(tmp.after(start));
-                if ((tmp.after(start) && tmp.before(end)) || tmp.equals(start) || tmp.equals(end)) {
+        List<String> rateList = new ArrayList<>();
+        rateList.addAll(rateList2);
+        rateList.addAll(rateList1);
 
-                    if (line[1].equals(tmpCur)) {
-                        System.out.println(line[targetIndex]);
-                        rateList.add(line[targetIndex]);
-                    }
-                }
+        return rateList;
+    }
 
-            }
+    // method from : http://www.java2s.com/example/java-utility-method/median/median-arraylist-double-values-82543.html
+    public static double Median(ArrayList<Double> doubleRateList) {
+        Collections.sort(doubleRateList);
+
+        if (doubleRateList.size() % 2 == 1)
+            return doubleRateList.get((doubleRateList.size() + 1) / 2 - 1);
+
+        else {
+
+            double lower = doubleRateList.get(doubleRateList.size() / 2 - 1);
+            double upper = doubleRateList.get(doubleRateList.size() / 2);
+
+            return (lower + upper) / 2.0;
+        }
+    }
+
+    // method from : https://www.programiz.com/java-programming/examples/standard-deviation
+    public static double calculateSD(ArrayList<Double> numArray)
+    {
+        double sum = 0.0, standardDeviation = 0.0;
+        int length = numArray.size();
+
+        for(double num : numArray) {
+            sum += num;
         }
 
+        double mean = sum/length;
+
+        for(double num: numArray) {
+            standardDeviation += Math.pow(num - mean, 2);
+        }
+
+        return Math.sqrt(standardDeviation/length);
     }
+
 }
