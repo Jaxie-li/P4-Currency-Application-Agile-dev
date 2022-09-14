@@ -68,14 +68,30 @@ public class ChangeExchangeRateController {
             System.out.println("There exists invalid input !");
 
         } else {
-            Date tmpDate = new Date();
-            String date = tmpDate.readCsv("Book1.csv");
+            readDate tmpReadDate = new readDate();
+            String date = tmpReadDate.readCsv("Book1.csv");
             String add = "Modified";
             String content = date + "," + add + "," + originalCurrency + "," + targetCurrency + "," + tmpRate;
 
             String filePath = "changes.txt";
             Txt writer = new Txt();
             writer.writeFile(filePath, content);
+
+            Txt updateCsv = new Txt();
+            readDate todayReadDate = new readDate();
+            String checkDate = todayReadDate.readCsv("Book1.csv");
+            updateCsv.appliedChanges("changes.txt", checkDate);
         }
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/ExchangeRate.fxml"));
+        Parent root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        ChangeExchangeRateController controller = loader.getController();
+        controller.setStage(stage);
+        Csv csv = new Csv("Book1.csv");
+        controller.setCsv(csv);
+        stage.setScene(scene);
+        stage.show();
     }
 }

@@ -118,18 +118,10 @@ public class AdminUserController {
     @FXML
     private Button dailyUpdate;
 
-    @FXML
-    private Button updateChanges;
-
-    public void setUpdateChanges(ActionEvent event) throws IOException {
-        Txt updateCsv = new Txt();
-        Date todayDate = new Date();
-        String tmpDate = todayDate.readCsv("Book1.csv");
-        updateCsv.readFile("changes.txt", tmpDate);
-
+    public void setDailyUpdate(ActionEvent event) throws IOException {
+        Txt dailyUpdateWriter = new Txt();
+        dailyUpdateWriter.updateCsv2("Book2.txt");
     }
-
-    public void setDailyUpdate(ActionEvent event) throws IOException {}
 
 }
 
