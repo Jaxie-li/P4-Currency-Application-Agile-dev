@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CSV {
     public List<List<String>> records = new ArrayList<>();
-    public List<String> csvOutput = new ArrayList<String>();
+    public List<String> csvOutput = new ArrayList<>();
     public String[] currencies;
 
 
@@ -40,7 +40,7 @@ public class CSV {
         return -1;
     }
 
-    public List<String> readCsv(String filePath) throws IOException {
+    public List<String> readCSV(String filePath) throws IOException {
         File fileName = new File(filePath);
 
         InputStreamReader reader = new InputStreamReader(new FileInputStream(fileName));

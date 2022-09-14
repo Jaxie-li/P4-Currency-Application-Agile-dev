@@ -29,4 +29,16 @@ public class CSVTest {
         assertThrows(NullPointerException.class,()->new CSV(null));
         assertThrows(FileNotFoundException.class,()->new CSV("SOFT2412isMagic.tmd"));
     }
+    @Test
+    public void indexOfTest(){
+        assertEquals(0,this.csv.indexOf("AUD"));
+        assertEquals(-1,this.csv.indexOf("asdasd"));
+    }
+
+    @Test
+    public void ReadCSVTest() throws IOException {
+        assertNotNull(this.csv.readCSV("Book1.csv"));
+        assertThrows(NullPointerException.class,()->this.csv.readCSV(null));
+        assertThrows(FileNotFoundException.class,()->this.csv.readCSV("SOFT2412isMagic.tmd"));
+    }
 }

@@ -18,7 +18,6 @@ public class MainController {
     public Button summaryTable;
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     public CSV csv;
 

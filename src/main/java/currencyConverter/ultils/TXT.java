@@ -35,7 +35,7 @@ public class TXT {
         String line = "";
 
         CSV csvReader = new CSV("Book1.csv");
-        List<String> csvOutput = csvReader.readCsv("Book1.csv");
+        List<String> csvOutput = csvReader.readCSV("Book1.csv");
 
         while ((line = bufferedReader.readLine()) != null) {
             List<String> newCsv = new ArrayList<>();
@@ -167,7 +167,7 @@ public class TXT {
 
     public void updateCsv2(String filePath) throws IOException {
         CSV csvReader = new CSV("Book1.csv");
-        List<String> csvOutput = csvReader.readCsv("Book1.csv");
+        List<String> csvOutput = csvReader.readCSV("Book1.csv");
         TXT writer = new TXT();
         for (String s: csvOutput) {
             writer.writeFile(filePath, s);

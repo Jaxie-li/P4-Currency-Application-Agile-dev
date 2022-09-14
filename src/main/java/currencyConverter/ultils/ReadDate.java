@@ -3,7 +3,7 @@ package currencyConverter.ultils;
 import java.io.*;
 
 public class ReadDate {
-    public String readCsv(String filePath) throws IOException {
+    public String readCSV(String filePath) throws IOException {
         File fileName = new File(filePath);
 
         InputStreamReader reader = new InputStreamReader(new FileInputStream(fileName));

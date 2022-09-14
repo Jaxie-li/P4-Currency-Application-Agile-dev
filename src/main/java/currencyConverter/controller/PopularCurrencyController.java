@@ -66,11 +66,6 @@ public class PopularCurrencyController{
         dTc.setText(titles[3]);
 
     }
-    public void generateExchangeRate() {
-        // TODO: get the popular currencies, calculate values and put them in a table
-        // TODO: link with table-view
-
-    }
 
     public void backToMain(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/Main.fxml"));

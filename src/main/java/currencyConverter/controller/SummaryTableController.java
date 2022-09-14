@@ -13,52 +13,13 @@ import java.io.IOException;
 
 public class SummaryTableController {
 
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
 
     private Stage stage;
     private Scene scene;
-    private Parent root;
-
-    public void setCsv(CSV csv) {
-        this.csv = csv;
-        int length = csv.records.size();
-        for (int i = 1; i < length; i++) {
-            firstBox.getItems().add(csv.records.get(i).get(0));
-            secondBox.getItems().add(csv.records.get(i).get(0));
-        }
-    }
-
-    public CSV csv;
-
-
     @FXML
     private ChoiceBox<String> firstBox;
-
-
     @FXML
     private ChoiceBox<String> secondBox;
-
-    public void switchToObtainSummaryTable(javafx.event.ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/ObtainSummaryTable.fxml"));
-        Parent root = loader.load();
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        ObtainSummaryController controller = loader.getController();
-        controller.setStage(stage);
-        CSV csv = new CSV("Book1.csv");
-        controller.setCsv(csv);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-    @FXML
-    private void initialize (){
-
-    }
-
     @FXML
     private TextField startingDate;
     @FXML
@@ -80,6 +41,30 @@ public class SummaryTableController {
     @FXML
     private TextField allRates;
 
+
+    public void setCsv(CSV csv) {
+        this.csv = csv;
+        int length = csv.records.size();
+        for (int i = 1; i < length; i++) {
+            firstBox.getItems().add(csv.records.get(i).get(0));
+            secondBox.getItems().add(csv.records.get(i).get(0));
+        }
+    }
+    public CSV csv;
+
+    public void switchToObtainSummaryTable(javafx.event.ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/ObtainSummaryTable.fxml"));
+        Parent root = loader.load();
+        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        ObtainSummaryController controller = loader.getController();
+        controller.setStage(stage);
+        CSV csv = new CSV("Book1.csv");
+        controller.setCsv(csv);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void displayAllValues(String starting, String ending,
                                  String tmp, String target,
                                  String mmedian, String max,
@@ -95,7 +80,6 @@ public class SummaryTableController {
         mean.setText(mmean);
         sd.setText(standard);
         allRates.setText(all);
-
     }
 
 

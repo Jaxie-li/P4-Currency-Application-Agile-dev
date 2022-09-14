@@ -14,25 +14,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AddNewCurrencyTypeController {
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
     private Stage stage;
-
     private Scene scene;
-
-    private Parent root;
-
-    public void setCsv(CSV csv) {
-        this.csv = csv;
-        int length = this.csv.records.size();
-        for (int i = 1; i < length; i++) {
-            TargetType.getItems().add(this.csv.records.get(i).get(1));
-        }
-    }
-    public CSV csv;
-
     @FXML
     private ChoiceBox<String> TargetType;
 
@@ -48,7 +31,8 @@ public class AddNewCurrencyTypeController {
 
     @FXML
     private TextField newCurrencyType;
-    
+
+
     @FXML
     public void AddCurrency(ActionEvent event) throws IOException {
 
@@ -65,7 +49,7 @@ public class AddNewCurrencyTypeController {
 
         } else {
             ReadDate tmpReadDate = new ReadDate();
-            String date = tmpReadDate.readCsv("Book1.csv");
+            String date = tmpReadDate.readCSV("Book1.csv");
             String add = "Add";
             String content = date + "," + add + "," + tmpCurrency + "," + tmpTarget + "," + tmpRate;
 
@@ -75,7 +59,7 @@ public class AddNewCurrencyTypeController {
 
             TXT updateCsv = new TXT();
             ReadDate todayReadDate = new ReadDate();
-            String checkDate = todayReadDate.readCsv("Book1.csv");
+            String checkDate = todayReadDate.readCSV("Book1.csv");
             updateCsv.appliedChanges("changes.txt", checkDate);
         }
 
@@ -93,6 +77,20 @@ public class AddNewCurrencyTypeController {
         stage.show();
 
     }
+
+    public void setCsv(CSV csv) {
+        this.csv = csv;
+        int length = this.csv.records.size();
+        for (int i = 1; i < length; i++) {
+            TargetType.getItems().add(this.csv.records.get(i).get(1));
+        }
+    }
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    public CSV csv;
+
     public void returnAdminPage(javafx.event.ActionEvent actionEvent) throws IOException {
         //In the exchange rate page can return the previous page(admin page)
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/AdminUser.fxml"));

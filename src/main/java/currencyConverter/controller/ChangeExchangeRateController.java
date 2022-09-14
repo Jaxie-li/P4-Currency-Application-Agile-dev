@@ -14,15 +14,20 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ChangeExchangeRateController {
+    private Stage stage;
+    private Scene scene;
+    @FXML
+    private ChoiceBox<String> OriginBox;
+    @FXML
+    private ChoiceBox<String> ChangedBox;
+    @FXML
+    private TextField newRate;
+    @FXML
+    private Button update;
+
     public void setStage(Stage stage) {
         this.stage = stage;
     }
-    private Stage stage;
-
-    private Scene scene;
-
-    private Parent root;
-
     public void setCsv(CSV csv) {
         this.csv = csv;
         int length = this.csv.records.size();
@@ -33,15 +38,7 @@ public class ChangeExchangeRateController {
     }
     public CSV csv;
 
-    @FXML
-    private ChoiceBox<String> OriginBox;
 
-    @FXML
-    private ChoiceBox<String> ChangedBox;
-
-    @FXML
-    private void initialize (){
-    }
 
     public void returnAdminPage(javafx.event.ActionEvent actionEvent) throws IOException {
         //In the exchange rate page can return the previous page(admin page)
@@ -52,11 +49,6 @@ public class ChangeExchangeRateController {
         stage.setScene(scene);
         stage.show();
     }
-
-    @FXML
-    private TextField newRate;
-    @FXML
-    private Button update;
 
     public void setUpdate(ActionEvent event) throws IOException {
         String tmpRate = newRate.getText();
@@ -72,7 +64,7 @@ public class ChangeExchangeRateController {
 
         } else {
             ReadDate tmpReadDate = new ReadDate();
-            String date = tmpReadDate.readCsv("Book1.csv");
+            String date = tmpReadDate.readCSV("Book1.csv");
             String add = "Modified";
             String content = date + "," + add + "," + originalCurrency + "," + targetCurrency + "," + tmpRate;
 
@@ -82,7 +74,7 @@ public class ChangeExchangeRateController {
             // 根据change.txt里的targetC 和 currentC 来改变 popularC的 趋势
             TXT updateCsv = new TXT();
             ReadDate todayReadDate = new ReadDate();
-            String checkDate = todayReadDate.readCsv("Book1.csv");
+            String checkDate = todayReadDate.readCSV("Book1.csv");
             updateCsv.appliedChanges("changes.txt", checkDate);
         }
 

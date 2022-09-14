@@ -2,6 +2,7 @@ package currencyConverter;
 
 import currencyConverter.controller.MainController;
 import currencyConverter.ultils.CSV;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -26,7 +27,7 @@ public class LoginAdmin {
     @FXML private PasswordField pw; // password field's password
 
     //return button => main page
-    public void returnToMainPage(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void returnToMainPage(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/Main.fxml"));
         Parent root = loader.load();
         MainController mainController = loader.getController();
@@ -39,7 +40,7 @@ public class LoginAdmin {
         stage.show();
     }
 
-    public void userLogin(javafx.event.ActionEvent actionEvent) throws IOException{
+    public void userLogin(ActionEvent actionEvent) throws IOException{
         checkLogin();}
 
     //Check if username and password match, when match => click login => admin page.
