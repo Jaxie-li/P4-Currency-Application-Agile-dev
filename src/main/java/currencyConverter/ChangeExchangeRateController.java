@@ -76,7 +76,7 @@ public class ChangeExchangeRateController {
             String filePath = "changes.txt";
             Txt writer = new Txt();
             writer.writeFile(filePath, content);
-
+            // 根据change.txt里的targetC 和 currentC 来改变 popularC的 趋势
             Txt updateCsv = new Txt();
             readDate todayReadDate = new readDate();
             String checkDate = todayReadDate.readCsv("Book1.csv");

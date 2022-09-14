@@ -1,0 +1,2 @@
+02/10/2022,Add,RNG,CNY,3
+02/10/2022,Modified,RNG,CNY,2
