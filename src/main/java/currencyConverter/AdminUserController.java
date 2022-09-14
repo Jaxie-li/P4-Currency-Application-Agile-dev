@@ -125,25 +125,55 @@ public class AdminUserController {
     @FXML
     private Button updateChanges;
 
-    public void setUpdateChanges(ActionEvent event) throws IOException {
-        Txt updateCsv = new Txt();
-        readDate todayDate = new readDate();
-        String tmpDate = todayDate.readCsv("Book1.csv");
-        updateCsv.appliedChanges("changes.txt", tmpDate);
-    }
+
     public void setDailyUpdate(ActionEvent event) throws IOException, ParseException {
         Txt dailyUpdateWriter = new Txt();
         dailyUpdateWriter.updateCsv2("Book2.txt");
         readDate todayDate = new readDate();
         String todayDay = todayDate.readCsv("Book1.csv");
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Calendar c = Calendar.getInstance();
         c.setTime(sdf.parse(todayDay));
         c.add(Calendar.DATE, 1);
         todayDay = sdf.format(c.getTime());
-        System.out.println(todayDay);  
-        
-        
+        System.out.println(todayDay);
+
+        Csv csvReader = new Csv("Book1.csv");
+        List<String> csvOutput = csvReader.readCsv("Book1.csv");
+        Txt writer = new Txt();
+
+        List<String> newCsv = new ArrayList<>();
+
+        for (int i = 0; i < csvOutput.size(); i++) {
+            StringBuilder stringBuilder = new StringBuilder();
+
+            if (i > 0) {
+                String[] values = csvOutput.get(i).split(",");
+                values[0] = todayDay;
+                stringBuilder.append(values[0]).append(",");
+
+                for (int j = 1; j < values.length; j++) {
+                    if (j == values.length - 1) {
+                        stringBuilder.append(values[j]);
+                    } else {
+                        stringBuilder.append(values[j]).append(",");
+                    }
+                }
+
+                newCsv.add(String.valueOf(stringBuilder));
+            } else {
+                newCsv.add(csvOutput.get(i));
+            }
+        }
+
+        for (int i = 0; i < newCsv.size(); i++) {
+            if (i == 0) {
+                writer.writeFile2("Book1.csv", newCsv.get(i));
+            } else {
+                writer.writeFile("Book1.csv", newCsv.get(i));
+            }
+        }
 
     }
 
