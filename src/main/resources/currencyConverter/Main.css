@@ -1,5 +1,21 @@
 .button {
     -fx-background-color:  #404040;
+    -fx-text-fill: #b8b8b8;
+    -fx-font-family: Optima;
+    -fx-font-size: 12px;
+    -fx-pref-width: 148;
+    -fx-pref-height: 36;
+}
+
+Text {
+    -fx-font-family: Optima;
+    -fx-font-size: 12px;
+    -fx-fill: #b8b8b8;
+}
+
+.text-field {
+    -fx-font-family: Optima;
+    -fx-font-size: 12px;
 }
 
 /*#generate_button {*/
@@ -19,9 +35,8 @@
 
 .table-cell {
     -fx-padding: 0.5em;
-    -fx-border-color: transparent -fx-box-border transparent transparent;
-    -fx-font: 13px "Optima";
-    -fx-text-fill: #b9b8b8;
+    -fx-font-family: Optima;
+    -fx-fill: #b9b8b8;
 }
 
 .table-cell :focused {
