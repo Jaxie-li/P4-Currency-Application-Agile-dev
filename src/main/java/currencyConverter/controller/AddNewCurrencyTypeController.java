@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AddNewCurrencyTypeController {
+    public CSV csv;
     private Stage stage;
     private Scene scene;
     @FXML
@@ -72,13 +73,13 @@ public class AddNewCurrencyTypeController {
         AddNewCurrencyTypeController controller = loader.getController();
         controller.setStage(stage);
         CSV csv = new CSV("Book1.csv");
-        controller.setCsv(csv);
+        controller.setCSV(csv);
         stage.setScene(scene);
         stage.show();
 
     }
 
-    public void setCsv(CSV csv) {
+    public void setCSV(CSV csv) {
         this.csv = csv;
         int length = this.csv.records.size();
         for (int i = 1; i < length; i++) {
@@ -89,7 +90,6 @@ public class AddNewCurrencyTypeController {
         this.stage = stage;
     }
 
-    public CSV csv;
 
     public void returnAdminPage(javafx.event.ActionEvent actionEvent) throws IOException {
         //In the exchange rate page can return the previous page(admin page)

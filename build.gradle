@@ -29,7 +29,7 @@ application {
 }
 
 javafx {
-    version = '17.0.2'
+    version = '18.0.2'
     modules = ['javafx.controls', 'javafx.fxml']
 }
 
@@ -39,7 +39,13 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 
+//Provide Stable Test Environment
+task replace(type:Exec){
+    commandLine './test.sh'
+}
+
 test {
+    dependsOn(replace)
     useJUnitPlatform()
     test.finalizedBy jacocoTestReport // After gradle run, do gradle jacocoTestReport. It is to say it will auto generate jacocoTestReport
 }
@@ -69,8 +75,5 @@ jacocoTestReport{
         }))
     }
 }
-//Provide Stable Test Environment
-task replace(type:Exec){
-    commandLine './test.sh'
-}
+
 

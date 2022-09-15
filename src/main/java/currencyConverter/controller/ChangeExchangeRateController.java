@@ -25,10 +25,14 @@ public class ChangeExchangeRateController {
     @FXML
     private Button update;
 
+    /**
+     * This function is used to set the current stage
+     * @param stage: the stage which pass from previous page
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
-    public void setCsv(CSV csv) {
+    public void setCSV(CSV csv) {
         this.csv = csv;
         int length = this.csv.records.size();
         for (int i = 1; i < length; i++) {
@@ -85,7 +89,7 @@ public class ChangeExchangeRateController {
         ChangeExchangeRateController controller = loader.getController();
         controller.setStage(stage);
         CSV csv = new CSV("Book1.csv");
-        controller.setCsv(csv);
+        controller.setCSV(csv);
         stage.setScene(scene);
         stage.show();
     }

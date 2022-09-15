@@ -1,5 +1,6 @@
 package ultils;
 
+import currencyConverter.ultils.TXT;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,12 +13,14 @@ import static org.junit.jupiter.api.Assertions.*;
  * @description: TXTTest
  */
 public class TXTTest {
+    private TXT txt;
     @BeforeEach
     public void init(){
-
+        this.txt = new TXT();
     }
     @Test
-    public void Test(){
+    public void writeFileTest(){
+
 
     }
 }

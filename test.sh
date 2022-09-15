@@ -1,1 +1,1 @@
-cp ./testfile/* ./*
+cp ./testfile/* ./

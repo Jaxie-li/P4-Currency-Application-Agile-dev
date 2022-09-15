@@ -93,7 +93,7 @@ public class AdminUserController {
         ChangeExchangeRateController controller = loader.getController();
         controller.setStage(stage);
         CSV csv = new CSV("Book1.csv");
-        controller.setCsv(csv);
+        controller.setCSV(csv);
         stage.setScene(scene);
         stage.show();
     }
@@ -120,7 +120,7 @@ public class AdminUserController {
         AddNewCurrencyTypeController controller = loader.getController();
         controller.setStage(stage);
         CSV csv = new CSV("Book1.csv");
-        controller.setCsv(csv);
+        controller.setCSV(csv);
         stage.setScene(scene);
         stage.show();
 

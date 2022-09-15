@@ -30,7 +30,7 @@ public class ObtainSummaryController {
     private Scene scene;
     private Parent root;
 
-    public void setCsv(CSV csv) {
+    public void setCSV(CSV csv) {
         this.csv = csv;
         int length = this.csv.records.size();
         for (int i = 1; i < length; i++) {
@@ -110,7 +110,7 @@ public class ObtainSummaryController {
 
     }
 
-    public void setCsv(SortEvent<TableView> tableViewSortEvent) {
+    public void setCSV(SortEvent<TableView> tableViewSortEvent) {
     }
 
     public void switchToObtainSummaryTable(ActionEvent actionEvent) throws IOException, ParseException {

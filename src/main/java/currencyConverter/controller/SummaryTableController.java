@@ -1,6 +1,7 @@
 package currencyConverter.controller;
 
 import currencyConverter.ultils.CSV;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,8 +13,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SummaryTableController {
-
-
     private Stage stage;
     private Scene scene;
     @FXML
@@ -52,7 +51,7 @@ public class SummaryTableController {
     }
     public CSV csv;
 
-    public void switchToObtainSummaryTable(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void switchToObtainSummaryTable(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/ObtainSummaryTable.fxml"));
         Parent root = loader.load();
         stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -60,24 +59,24 @@ public class SummaryTableController {
         ObtainSummaryController controller = loader.getController();
         controller.setStage(stage);
         CSV csv = new CSV("Book1.csv");
-        controller.setCsv(csv);
+        controller.setCSV(csv);
         stage.setScene(scene);
         stage.show();
     }
 
     public void displayAllValues(String starting, String ending,
                                  String tmp, String target,
-                                 String mmedian, String max,
-                                 String min, String mmean,
+                                 String mMedian, String max,
+                                 String min, String mMean,
                                  String standard, String all) {
         startingDate.setText(starting);
         endingDate.setText(ending);
         tmpCurrency.setText(tmp);
         targetCurrency.setText(target);
-        median.setText(mmedian);
+        median.setText(mMedian);
         mmax.setText(max);
         mmin.setText(min);
-        mean.setText(mmean);
+        mean.setText(mMean);
         sd.setText(standard);
         allRates.setText(all);
     }
