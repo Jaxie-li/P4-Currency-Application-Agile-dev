@@ -2,6 +2,7 @@ package currencyConverter.controller;
 
 
 import currencyConverter.components.PopularCurrency;
+import currencyConverter.ultils.CSV;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -69,9 +70,13 @@ public class PopularCurrencyController{
 
     public void backToMain(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/Main.fxml"));
-        root = loader.load();
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Parent root = loader.load();
+        MainController mainController = loader.getController();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        mainController.setStage(stage);
+        CSV csv = new CSV("Book1.csv");
+        mainController.setCsv(csv);
         stage.setScene(scene);
         stage.show();
     }
