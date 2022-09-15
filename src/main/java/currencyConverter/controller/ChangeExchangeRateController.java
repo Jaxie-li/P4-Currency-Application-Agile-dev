@@ -55,9 +55,9 @@ public class ChangeExchangeRateController {
         String originalCurrency = OriginBox.getValue();
         String targetCurrency = ChangedBox.getValue();
 
-        System.out.println(tmpRate);
-        System.out.println(originalCurrency);
-        System.out.println(targetCurrency);
+//        System.out.println(tmpRate);
+//        System.out.println(originalCurrency);
+//        System.out.println(targetCurrency);
 
         if (originalCurrency.isEmpty() || targetCurrency.isEmpty() || tmpRate.isEmpty()){
             System.out.println("There exists invalid input !");

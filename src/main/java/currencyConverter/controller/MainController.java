@@ -81,7 +81,7 @@ public class MainController {
         this.csv = csv;
         int length = this.csv.records.size();
         for (int i = 1 ; i < length; i++) {
-            System.out.println(this.csv.records.get(i).get(1));
+//            System.out.println(this.csv.records.get(i).get(1));
             current_currency_choicebox.getItems().add(this.csv.records.get(i).get(1));
             targret_choicebox.getItems().add(this.csv.records.get(i).get(1));
         }
