@@ -10,10 +10,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #404040;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.controller.SummaryTableController">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #404040;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.controller.SummaryTableController">
    <VBox prefHeight="364.0" prefWidth="148.0" style="-fx-background-color: #404040;" stylesheets="@Main.css">
       <children>
-         <Button fx:id="admin_login" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Admin Login" textFill="#b8b8b8">
+         <Button fx:id="adminLogin" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Admin Login" textFill="#b8b8b8">
             <graphic>
                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -25,7 +25,7 @@
                <Font name="Optima Regular" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="popular_currency" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Popular currency" textFill="#b9b8b8">
+         <Button fx:id="popularCurrency" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Popular currency" textFill="#b9b8b8">
             <font>
                <Font name="Optima Regular" size="12.0" />
             </font>
@@ -37,7 +37,7 @@
                </ImageView>
             </graphic>
          </Button>
-         <Button fx:id="summary_table" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToObtainSummaryTable" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Summary table" textFill="#b8b8b8">
+         <Button fx:id="summaryTable" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToObtainSummaryTable" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Summary table" textFill="#b8b8b8">
             <font>
                <Font name="Optima Regular" size="12.0" />
             </font>
@@ -66,10 +66,13 @@
          <Insets />
       </opaqueInsets>
    </Button>
-   <Text fill="#fcfcfc" layoutX="173.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Starting Date" />
+   <Text fill="#fcfcfc" layoutX="173.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Starting Date">
+      <font>
+         <Font name="Optima Regular" size="12.0" />
+      </font></Text>
    <TextField fx:id="startingDate" layoutX="260.0" layoutY="10.0" prefHeight="26.0" prefWidth="105.0" />
    <TextField fx:id="endingDate" layoutX="260.0" layoutY="58.0" prefHeight="26.0" prefWidth="105.0" />
-   <Text fill="#fcfcfc" layoutX="175.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ending Date" />
+   <Text layoutX="175.0" layoutY="76.0" text="Ending Date" />
    <Text fill="#fcfcfc" layoutX="399.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From">
       <font>
          <Font size="14.0" />
@@ -85,13 +88,13 @@
    <TextField fx:id="median" layoutX="313.0" layoutY="110.0" prefHeight="26.0" prefWidth="105.0" />
    <Text fill="#fcfcfc" layoutX="249.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Median" wrappingWidth="45.51904296875" />
    <Text fill="#fcfcfc" layoutX="260.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max" />
-   <TextField fx:id="mmax" layoutX="313.0" layoutY="162.0" prefHeight="26.0" prefWidth="105.0" />
+   <TextField fx:id="max" layoutX="313.0" layoutY="162.0" prefHeight="26.0" prefWidth="105.0" />
    <Text fill="#fcfcfc" layoutX="263.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />
-   <TextField fx:id="mmin" layoutX="313.0" layoutY="213.0" prefHeight="26.0" prefWidth="105.0" />
-   <Text fill="#fcfcfc" layoutX="249.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average" />
+   <TextField fx:id="min" layoutX="313.0" layoutY="213.0" prefHeight="26.0" prefWidth="105.0" />
+   <Text fill="#fcfcfc" layoutX="250.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average" />
    <TextField fx:id="mean" layoutX="313.0" layoutY="261.0" prefHeight="26.0" prefWidth="105.0" />
-   <Text fill="WHITE" layoutX="161.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Rates" />
-   <TextField fx:id="allRates" layoutX="233.0" layoutY="331.0" prefHeight="26.0" prefWidth="402.0" />
-   <Text fill="#fcfcfc" layoutX="535.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SD" />
+   <Text fill="WHITE" layoutX="160.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Rates" wrappingWidth="45.347999572753906" />
+   <TextField fx:id="allRates" layoutX="225.0" layoutY="320.0" prefHeight="26.0" prefWidth="402.0" />
+   <Text fill="#fcfcfc" layoutX="459.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SD" />
    <TextField fx:id="sd" layoutX="491.0" layoutY="188.0" prefHeight="26.0" prefWidth="105.0" />
 </AnchorPane>

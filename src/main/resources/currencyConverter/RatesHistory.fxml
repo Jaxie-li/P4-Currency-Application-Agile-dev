@@ -4,23 +4,31 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="currencyConverter.controller.AdminUserController">
-      <TableView layoutX="3.0" layoutY="42.0" prefHeight="356.0" prefWidth="597.0">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #393838;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.controller.AdminUserController">
+      <TableView layoutX="53.0" layoutY="58.0" prefHeight="300.0" prefWidth="595.0">
         <columns>
           <TableColumn prefWidth="132.0" text="Currency type" />
-            <TableColumn prefWidth="136.0" text="Target type" />
-            <TableColumn prefWidth="176.0" text="Date" />
+            <TableColumn prefWidth="133.29241943359375" text="Target type" />
+            <TableColumn prefWidth="179.70755004882812" text="Date" />
             <TableColumn prefWidth="149.0" text="Rate" />
         </columns>
       </TableView>
-      <Label layoutX="240.0" prefHeight="42.0" prefWidth="243.0" text="Rate History" textFill="#b53b3b">
+      <Label alignment="CENTER" layoutX="233.0" prefHeight="42.0" prefWidth="243.0" text="Rate History" textFill="#b53b3b">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="8.0" onAction="#returnAdminPage" mnemonicParsing="false" text="return" />
+      <Button alignment="BOTTOM_LEFT" layoutX="3.0" layoutY="3.0" mnemonicParsing="false" onAction="#returnAdminPage" text="Return">
+      <graphic>
+         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@icon/left.png" />
+            </image>
+         </ImageView>
+      </graphic></Button>
 </AnchorPane>

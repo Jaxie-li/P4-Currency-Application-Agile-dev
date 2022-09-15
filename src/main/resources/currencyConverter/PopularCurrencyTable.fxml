@@ -6,9 +6,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.controller.PopularCurrencyController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #393838;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.controller.PopularCurrencyController">
     <children>
         <Label layoutX="233.0" layoutY="35.0" text="Most Popular Currencies" />
         <TableView fx:id="popular_currency_table" layoutX="101.0" layoutY="129.0" prefHeight="200.0" prefWidth="400.0">
@@ -45,6 +47,13 @@
                 <FXCollections fx:factory="observableArrayList" />
             </items>
         </TableView>
-        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMain" text="Back" />
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMain" text="Return">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icon/left.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
     </children>
 </AnchorPane>
