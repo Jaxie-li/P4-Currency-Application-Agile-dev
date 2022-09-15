@@ -1,3 +1,8 @@
+/**
+ * Author: Ye Yuan
+ * Modified date: 15/09/2022
+ */
+
 package currencyConverter.ultils;
 
 import java.io.*;
@@ -6,36 +11,51 @@ import java.util.List;
 import java.util.Objects;
 
 public class TXT {
-
-    public void writeFile(String filePath, String content) throws IOException {
+    /**
+     * Write file method which is used to put content into a file which already exits,
+     * just write content after the file last line,
+     * This would not overwrite original content
+     * @param filePath file wants to be written in
+     * @param content which want to put into the file
+     * @throws IOException any exception, throws it
+     */
+    public void writeFileMode(String filePath, String content) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath, true));
         bufferedWriter.write(content);
-
         bufferedWriter.newLine();
         bufferedWriter.flush();
         bufferedWriter.close();
-        // System.out.println("Success save the changes");
     }
 
-    public void writeFile2(String filePath, String content) throws IOException {
+    /**
+     * Overwrite file method which is used to overwrite a file which alread exits
+     * @param filePath file wants to be overwritten in
+     * @param content content wants to be put into the file >> always be the first line
+     * @throws IOException any exception, throws it
+     */
+    public void overwriteFile(String filePath, String content) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath));
         bufferedWriter.write(content);
-
         bufferedWriter.newLine();
         bufferedWriter.flush();
         bufferedWriter.close();
-//        System.out.println("Mode 2 overwrite the Book1.csv file the first line successfully!");
     }
 
-    public void appliedChanges(String filePath, String date) throws  IOException {
+    /**
+     * applied changes into dataset > Book1.csv
+     * @param filePath changes.txt
+     * @param destFile Book1.csv
+     * @param date The date made changes
+     * @throws IOException any exception, throws it
+     */
+    public void appliedChanges(String filePath, String destFile, String date) throws  IOException {
         File fileName = new File(filePath);
-
         InputStreamReader reader = new InputStreamReader(new FileInputStream(fileName));
         BufferedReader bufferedReader = new BufferedReader(reader);
         String line = "";
 
-        CSV csvReader = new CSV("Book1.csv");
-        List<String> csvOutput = csvReader.readCSV("Book1.csv");
+        CSV csvReader = new CSV(destFile);
+        List<String> csvOutput = csvReader.grabDataSet(destFile);
 
         while ((line = bufferedReader.readLine()) != null) {
             List<String> newCsv = new ArrayList<>();
@@ -46,8 +66,12 @@ public class TXT {
             String tmpRate = values[4];
 
             int targetCurrencyIndex = 0;
+
             if (Objects.equals(values[0], date)){
-                if (Objects.equals(values[1], "Add")) {
+
+                // applied "add" changes into files
+                if (Objects.equals(values[1], "Add"))
+                {
                     for (int i = 0; i < csvOutput.size(); i++) {
                         if (i == 0) {
                             String tmp = csvOutput.get(i) + "," + tmpCurrency;
@@ -81,18 +105,13 @@ public class TXT {
                         }
                     }
                     newCsv.add(lastLine.toString());
-//
-//                    Txt writer = new Txt();
-//                    for (int i = 0; i < newCsv.size(); i++) {
-//                        if (i == 0) {
-//                            writer.writeFile2("Book1.csv", newCsv.get(i));
-//                        } else {
-//                            writer.writeFile("Book1.csv", newCsv.get(i));
-//                        }
-//                    }
-//
-//                    System.out.println("Add update into Book1.csv file successfully!");
-                } else if (Objects.equals(values[1], "Modified")) {
+
+
+                }
+
+                // applied "modified" changes to file
+                else if (Objects.equals(values[1], "Modified"))
+                {
 
                     int indexTmpCurrency = 0;
                     int indexTargetCurrency = 0;
@@ -103,7 +122,6 @@ public class TXT {
                             String[] modifiedLine = csvOutput.get(i).split(",");
                             for (int j = 0; j < modifiedLine.length; j++) {
                                 if (modifiedLine[j].equals(tmpCurrency)) {
-
                                     indexTmpCurrency = j;
                                 } else if (modifiedLine[j].equals(targetCurrency)) {
                                     indexTargetCurrency = j;
@@ -111,52 +129,35 @@ public class TXT {
                             }
                         }
 
-                        if (i == indexTmpCurrency - 1) {
+                        // change the tmpCurrency row
+                        // tmpCurrency which means from tmpCurrency to target currency
+                        if (i == indexTmpCurrency - 1)
+                        {
                             String[] modifiedLine = csvOutput.get(i).split(",");
-                            modifiedLine[indexTargetCurrency] = tmpRate;
+                            searchTargetCurrency(newCsv, tmpRate, indexTargetCurrency, modifiedLine);
 
-                            StringBuilder tmpLine = new StringBuilder();
-                            for(int k = 0; k < modifiedLine.length; k++) {
-                                if (k == modifiedLine.length - 1) {
-                                    tmpLine.append(modifiedLine[k]);
-                                } else {
-                                    tmpLine.append(modifiedLine[k]).append(",");
-                                }
-                            }
-                            newCsv.add(String.valueOf(tmpLine));
-//                            System.out.println(i);
-//                            System.out.println(Arrays.toString(modifiedLine));
-
-                        } else if (i == indexTargetCurrency - 1) {
+                        }
+                        // change the target currency row
+                        else if (i == indexTargetCurrency - 1)
+                        {
                             String[] modifiedLine = csvOutput.get(i).split(",");
                             double reciprocal  = 1 / Double.parseDouble(tmpRate);
                             String reciprocalString = String.format("%.4f", reciprocal);
-                            modifiedLine[indexTmpCurrency] = reciprocalString;
-
-                            StringBuilder tmpLine = new StringBuilder();
-                            for(int k = 0; k < modifiedLine.length; k++) {
-                                if (k == modifiedLine.length - 1) {
-                                    tmpLine.append(modifiedLine[k]);
-                                } else {
-                                    tmpLine.append(modifiedLine[k]).append(",");
-                                }
-                            }
-                            newCsv.add(String.valueOf(tmpLine));
-//                            System.out.println(i);
-//                            System.out.println(reciprocalString);
+                            searchTargetCurrency(newCsv, reciprocalString, indexTmpCurrency, modifiedLine);
 
                         } else {
                             newCsv.add(csvOutput.get(i));
                         }
                     }
-
                 }
+
+                // write back to dataset
                 TXT writer = new TXT();
                 for (int i = 0; i < newCsv.size(); i++) {
                     if (i == 0) {
-                        writer.writeFile2("Book1.csv", newCsv.get(i));
+                        writer.overwriteFile(destFile, newCsv.get(i));
                     } else {
-                        writer.writeFile("Book1.csv", newCsv.get(i));
+                        writer.writeFileMode(destFile, newCsv.get(i));
                     }
                 }
 
@@ -165,12 +166,39 @@ public class TXT {
         }
     }
 
-    public void updateCsv2(String filePath) throws IOException {
-        CSV csvReader = new CSV("Book1.csv");
-        List<String> csvOutput = csvReader.readCSV("Book1.csv");
+    /**
+     * search the target currency in the dataset
+     * @param newCsv newCsv is a List<String> to store all data in the dataset, like tmp dataset
+     * @param tmpRate the date want to search
+     * @param indexTargetCurrency index of the target currency in the dataset table
+     * @param modifiedLine any exception, throws it
+     */
+    private void searchTargetCurrency(List<String> newCsv, String tmpRate, int indexTargetCurrency, String[] modifiedLine) {
+        modifiedLine[indexTargetCurrency] = tmpRate;
+
+        StringBuilder tmpLine = new StringBuilder();
+        for(int k = 0; k < modifiedLine.length; k++) {
+            if (k == modifiedLine.length - 1) {
+                tmpLine.append(modifiedLine[k]);
+            } else {
+                tmpLine.append(modifiedLine[k]).append(",");
+            }
+        }
+        newCsv.add(String.valueOf(tmpLine));
+    }
+
+    /**
+     * Copy book1 to book2, write after book2
+     * @param filePath book1
+     * @param destFile book2
+     * @throws IOException any exception, throws it
+     */
+    public void copyBook1ToBook2(String filePath, String destFile) throws IOException {
+        CSV csvReader = new CSV(filePath);
+        List<String> csvOutput = csvReader.grabDataSet(filePath);
         TXT writer = new TXT();
         for (String s: csvOutput) {
-            writer.writeFile(filePath, s);
+            writer.writeFileMode(destFile, s);
         }
 
     }

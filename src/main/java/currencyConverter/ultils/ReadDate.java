@@ -1,9 +1,20 @@
+/**
+ * Author: Ye Yuan
+ * Modified date: 15/09/2022
+ */
+
 package currencyConverter.ultils;
 
 import java.io.*;
 
 public class ReadDate {
-    public String readCSV(String filePath) throws IOException {
+    /**
+     * This is for get today's date
+     * @param filePath book1.csv
+     * @return String which is show the date >> "30/09/2022"
+     * @throws IOException throws IOException
+     */
+    public String getDate(String filePath) throws IOException {
         File fileName = new File(filePath);
 
         InputStreamReader reader = new InputStreamReader(new FileInputStream(fileName));
@@ -13,16 +24,19 @@ public class ReadDate {
         int counter = 0;
         while ((line = bufferedReader.readLine()) != null) {
             counter++;
-//            System.out.println(line);
             if (counter == 2) {
                 String[] values = line.split(",");
                 return values[0];
-//                break;
             }
         }
         return "Get date failed";
     }
 
+    /**
+     * convert date format
+     * @param date String of original date: 2022-09-14 >> 14/09/2022
+     * @return String of converted date
+     */
     public String convertDate(String date) {
         // date picker format : 2022-09-14 >> 14/09/2022
         String[] dateSplit = date.split("-");

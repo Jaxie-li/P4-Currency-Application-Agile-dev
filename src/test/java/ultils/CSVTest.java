@@ -37,8 +37,8 @@ public class CSVTest {
 
     @Test
     public void ReadCSVTest() throws IOException {
-        assertNotNull(this.csv.readCSV("Book1.csv"));
-        assertThrows(NullPointerException.class,()->this.csv.readCSV(null));
-        assertThrows(FileNotFoundException.class,()->this.csv.readCSV("SOFT2412isMagic.tmd"));
+        assertNotNull(this.csv.grabDataSet("Book1.csv"));
+        assertThrows(NullPointerException.class,()->this.csv.grabDataSet(null));
+        assertThrows(FileNotFoundException.class,()->this.csv.grabDataSet("SOFT2412isMagic.tmd"));
     }
 }

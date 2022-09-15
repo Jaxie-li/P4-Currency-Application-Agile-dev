@@ -28,9 +28,9 @@ public class ReadDataTest {
     
     @Test
     public void readCSVTest() throws IOException {
-        assertDoesNotThrow(()->this.readDate.readCSV("Book1.csv"));
-        assertEquals("30/09/2022",this.readDate.readCSV("Book1.csv"));
-        assertEquals("Get date failed",this.readDate.readCSV("Book2.csv"));
+        assertDoesNotThrow(()->this.readDate.getDate("Book1.csv"));
+        assertEquals("30/09/2022",this.readDate.getDate("Book1.csv"));
+        assertEquals("Get date failed",this.readDate.getDate("Book2.csv"));
 
     }
     @Test

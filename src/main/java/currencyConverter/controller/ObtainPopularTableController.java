@@ -20,7 +20,6 @@ import java.util.List;
 public class ObtainPopularTableController {
     public ObtainPopularTableController() throws IOException {
     }
-
     public void setStage(Stage stage) {
         this.stage = stage;
     }
@@ -71,7 +70,7 @@ public class ObtainPopularTableController {
         
         TXT writer = new TXT();
         //write to Popular.txt
-        writer.writeFile2("Popular.txt", lines.get(0).replace(out, in));
+        writer.overwriteFile("Popular.txt", lines.get(0).replace(out, in));
 
         int outPopularIndex = -1;
         String[] others = new String[4];
@@ -113,7 +112,7 @@ public class ObtainPopularTableController {
 
             }
             // TODO: write s to Popular.txt
-            writer.writeFile("Popular.txt", s);
+            writer.writeFileMode("Popular.txt", s);
             System.out.print(s);
         }
     }

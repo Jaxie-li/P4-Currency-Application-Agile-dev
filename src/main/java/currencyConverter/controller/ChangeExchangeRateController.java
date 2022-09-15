@@ -68,18 +68,18 @@ public class ChangeExchangeRateController {
 
         } else {
             ReadDate tmpReadDate = new ReadDate();
-            String date = tmpReadDate.readCSV("Book1.csv");
+            String date = tmpReadDate.getDate("Book1.csv");
             String add = "Modified";
             String content = date + "," + add + "," + originalCurrency + "," + targetCurrency + "," + tmpRate;
 
             String filePath = "changes.txt";
             TXT writer = new TXT();
-            writer.writeFile(filePath, content);
+            writer.writeFileMode(filePath, content);
             // 根据change.txt里的targetC 和 currentC 来改变 popularC的 趋势
             TXT updateCsv = new TXT();
             ReadDate todayReadDate = new ReadDate();
-            String checkDate = todayReadDate.readCSV("Book1.csv");
-            updateCsv.appliedChanges("changes.txt", checkDate);
+            String checkDate = todayReadDate.getDate("Book1.csv");
+            updateCsv.appliedChanges("changes.txt", "Book1.csv", checkDate);
         }
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/ExchangeRate.fxml"));

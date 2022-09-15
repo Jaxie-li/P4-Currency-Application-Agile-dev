@@ -10,10 +10,6 @@ public class CSV {
     public List<String> csvOutput = new ArrayList<>();
     public String[] currencies;
 
-
-
-
-
     public CSV(String path) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(path));
         String line;
@@ -40,7 +36,7 @@ public class CSV {
         return -1;
     }
 
-    public List<String> readCSV(String filePath) throws IOException {
+    public List<String> grabDataSet(String filePath) throws IOException {
         File fileName = new File(filePath);
 
         InputStreamReader reader = new InputStreamReader(new FileInputStream(fileName));
@@ -48,9 +44,7 @@ public class CSV {
         String line = "";
 
         while ((line = bufferedReader.readLine()) != null) {
-                String[] values = line.split(",");
                 csvOutput.add(line);
-
         }
         return csvOutput;
     }

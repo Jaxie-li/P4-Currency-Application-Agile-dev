@@ -50,18 +50,18 @@ public class AddNewCurrencyTypeController {
 
         } else {
             ReadDate tmpReadDate = new ReadDate();
-            String date = tmpReadDate.readCSV("Book1.csv");
+            String date = tmpReadDate.getDate("Book1.csv");
             String add = "Add";
             String content = date + "," + add + "," + tmpCurrency + "," + tmpTarget + "," + tmpRate;
 
             String filePath = "changes.txt";
             TXT writer = new TXT();
-            writer.writeFile(filePath, content);
+            writer.writeFileMode(filePath, content);
 
             TXT updateCsv = new TXT();
             ReadDate todayReadDate = new ReadDate();
-            String checkDate = todayReadDate.readCSV("Book1.csv");
-            updateCsv.appliedChanges("changes.txt", checkDate);
+            String checkDate = todayReadDate.getDate("Book1.csv");
+            updateCsv.appliedChanges("changes.txt", "Book1.csv", checkDate);
         }
 
 

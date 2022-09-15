@@ -152,8 +152,8 @@ public class ObtainSummaryController {
         List<String> output1 = new ArrayList<>();
         List<String> output2 = new ArrayList<>();
 
-        output1 = readCsv1.readCSV("Book1.csv");
-        output2 = readCsv2.readCSV("Book2.txt");
+        output1 = readCsv1.grabDataSet("Book1.csv");
+        output2 = readCsv2.grabDataSet("Book2.txt");
 
         ReadDate converter = new ReadDate();
         String validStarting = converter.convertDate(starting);
