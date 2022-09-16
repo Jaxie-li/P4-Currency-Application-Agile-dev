@@ -72,14 +72,14 @@ public class ChangeExchangeRateController {
             String add = "Modified";
             String content = date + "," + add + "," + originalCurrency + "," + targetCurrency + "," + tmpRate;
 
-            String filePath = "changes.txt";
+            String filePath = "Changes.txt";
             TXT writer = new TXT();
-            writer.writeFileMode(filePath, content);
+            writer.appendFileMode(filePath, content);
             // 根据change.txt里的targetC 和 currentC 来改变 popularC的 趋势
             TXT updateCsv = new TXT();
             ReadDate todayReadDate = new ReadDate();
             String checkDate = todayReadDate.getDate("Book1.csv");
-            updateCsv.appliedChanges("changes.txt", "Book1.csv", checkDate);
+            updateCsv.appliedChanges("Changes.txt", "Book1.csv", checkDate);
         }
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/ExchangeRate.fxml"));

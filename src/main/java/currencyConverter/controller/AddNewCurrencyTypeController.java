@@ -54,14 +54,14 @@ public class AddNewCurrencyTypeController {
             String add = "Add";
             String content = date + "," + add + "," + tmpCurrency + "," + tmpTarget + "," + tmpRate;
 
-            String filePath = "changes.txt";
+            String filePath = "Changes.txt";
             TXT writer = new TXT();
-            writer.writeFileMode(filePath, content);
+            writer.appendFileMode(filePath, content);
 
             TXT updateCsv = new TXT();
             ReadDate todayReadDate = new ReadDate();
             String checkDate = todayReadDate.getDate("Book1.csv");
-            updateCsv.appliedChanges("changes.txt", "Book1.csv", checkDate);
+            updateCsv.appliedChanges("Changes.txt", "Book1.csv", checkDate);
         }
 
 

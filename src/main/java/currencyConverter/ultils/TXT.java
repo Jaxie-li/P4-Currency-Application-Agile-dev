@@ -1,6 +1,6 @@
 /**
  * Author: Ye Yuan
- * Modified date: 15/09/2022
+ * Modified date: 16/09/2022
  */
 
 package currencyConverter.ultils;
@@ -15,11 +15,12 @@ public class TXT {
      * Write file method which is used to put content into a file which already exits,
      * just write content after the file last line,
      * This would not overwrite original content
+     *
      * @param filePath file wants to be written in
-     * @param content which want to put into the file
+     * @param content  which want to put into the file
      * @throws IOException any exception, throws it
      */
-    public void writeFileMode(String filePath, String content) throws IOException {
+    public void appendFileMode(String filePath, String content) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath, true));
         bufferedWriter.write(content);
         bufferedWriter.newLine();
@@ -28,9 +29,10 @@ public class TXT {
     }
 
     /**
-     * Overwrite file method which is used to overwrite a file which alread exits
+     * Overwrite file method which is used to overwrite a file which already exits
+     *
      * @param filePath file wants to be overwritten in
-     * @param content content wants to be put into the file >> always be the first line
+     * @param content  content wants to be put into the file >> always be the first line
      * @throws IOException any exception, throws it
      */
     public void overwriteFile(String filePath, String content) throws IOException {
@@ -43,19 +45,20 @@ public class TXT {
 
     /**
      * applied changes into dataset > Book1.csv
+     *
      * @param filePath changes.txt
      * @param destFile Book1.csv
-     * @param date The date made changes
+     * @param date     The date made changes
      * @throws IOException any exception, throws it
      */
-    public void appliedChanges(String filePath, String destFile, String date) throws  IOException {
+    public void appliedChanges(String filePath, String destFile, String date) throws IOException {
         File fileName = new File(filePath);
         InputStreamReader reader = new InputStreamReader(new FileInputStream(fileName));
         BufferedReader bufferedReader = new BufferedReader(reader);
         String line = "";
 
         CSV csvReader = new CSV(destFile);
-        List<String> csvOutput = csvReader.grabDataSet(destFile);
+        List<String> csvOutput = csvReader.outputDataset(destFile);
 
         while ((line = bufferedReader.readLine()) != null) {
             List<String> newCsv = new ArrayList<>();
@@ -67,11 +70,10 @@ public class TXT {
 
             int targetCurrencyIndex = 0;
 
-            if (Objects.equals(values[0], date)){
+            if (Objects.equals(values[0], date)) {
 
                 // applied "add" changes into files
-                if (Objects.equals(values[1], "Add"))
-                {
+                if (Objects.equals(values[1], "Add")) {
                     for (int i = 0; i < csvOutput.size(); i++) {
                         if (i == 0) {
                             String tmp = csvOutput.get(i) + "," + tmpCurrency;
@@ -91,10 +93,10 @@ public class TXT {
                     }
                     StringBuilder lastLine = new StringBuilder(date + "," + tmpCurrency);
 
-                    for (int i = 0; i < csvOutput.size(); i++){
+                    for (int i = 0; i < csvOutput.size(); i++) {
 
                         if (i == targetCurrencyIndex - 1) {
-                            double reciprocal  = 1 / Double.parseDouble(tmpRate);
+                            double reciprocal = 1 / Double.parseDouble(tmpRate);
                             String reciprocalString = String.format("%.4f", reciprocal);
                             lastLine.append(",").append(reciprocalString);
 
@@ -110,8 +112,7 @@ public class TXT {
                 }
 
                 // applied "modified" changes to file
-                else if (Objects.equals(values[1], "Modified"))
-                {
+                else if (Objects.equals(values[1], "Modified")) {
 
                     int indexTmpCurrency = 0;
                     int indexTargetCurrency = 0;
@@ -131,17 +132,15 @@ public class TXT {
 
                         // change the tmpCurrency row
                         // tmpCurrency which means from tmpCurrency to target currency
-                        if (i == indexTmpCurrency - 1)
-                        {
+                        if (i == indexTmpCurrency - 1) {
                             String[] modifiedLine = csvOutput.get(i).split(",");
                             searchTargetCurrency(newCsv, tmpRate, indexTargetCurrency, modifiedLine);
 
                         }
                         // change the target currency row
-                        else if (i == indexTargetCurrency - 1)
-                        {
+                        else if (i == indexTargetCurrency - 1) {
                             String[] modifiedLine = csvOutput.get(i).split(",");
-                            double reciprocal  = 1 / Double.parseDouble(tmpRate);
+                            double reciprocal = 1 / Double.parseDouble(tmpRate);
                             String reciprocalString = String.format("%.4f", reciprocal);
                             searchTargetCurrency(newCsv, reciprocalString, indexTmpCurrency, modifiedLine);
 
@@ -157,7 +156,7 @@ public class TXT {
                     if (i == 0) {
                         writer.overwriteFile(destFile, newCsv.get(i));
                     } else {
-                        writer.writeFileMode(destFile, newCsv.get(i));
+                        writer.appendFileMode(destFile, newCsv.get(i));
                     }
                 }
 
@@ -168,16 +167,17 @@ public class TXT {
 
     /**
      * search the target currency in the dataset
-     * @param newCsv newCsv is a List<String> to store all data in the dataset, like tmp dataset
-     * @param tmpRate the date want to search
+     *
+     * @param newCsv              newCsv is a List<String> to store all data in the dataset, like tmp dataset
+     * @param tmpRate             the date want to search
      * @param indexTargetCurrency index of the target currency in the dataset table
-     * @param modifiedLine any exception, throws it
+     * @param modifiedLine        any exception, throws it
      */
     private void searchTargetCurrency(List<String> newCsv, String tmpRate, int indexTargetCurrency, String[] modifiedLine) {
         modifiedLine[indexTargetCurrency] = tmpRate;
 
         StringBuilder tmpLine = new StringBuilder();
-        for(int k = 0; k < modifiedLine.length; k++) {
+        for (int k = 0; k < modifiedLine.length; k++) {
             if (k == modifiedLine.length - 1) {
                 tmpLine.append(modifiedLine[k]);
             } else {
@@ -189,16 +189,17 @@ public class TXT {
 
     /**
      * Copy book1 to book2, write after book2
+     *
      * @param filePath book1
      * @param destFile book2
      * @throws IOException any exception, throws it
      */
     public void copyBook1ToBook2(String filePath, String destFile) throws IOException {
         CSV csvReader = new CSV(filePath);
-        List<String> csvOutput = csvReader.grabDataSet(filePath);
+        List<String> csvOutput = csvReader.outputDataset(filePath);
         TXT writer = new TXT();
-        for (String s: csvOutput) {
-            writer.writeFileMode(destFile, s);
+        for (String s : csvOutput) {
+            writer.appendFileMode(destFile, s);
         }
 
     }

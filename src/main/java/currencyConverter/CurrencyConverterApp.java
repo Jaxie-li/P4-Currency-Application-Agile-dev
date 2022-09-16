@@ -34,26 +34,25 @@ public class CurrencyConverterApp extends Application {
 
 
         //logout event
-        stage.setOnCloseRequest(event->{
+        stage.setOnCloseRequest(event -> {
             event.consume();
             logout(stage);
         });
     }
 
     //The logout in main page
-    public void logout(Stage stage){
+    public void logout(Stage stage) {
         //build a window for stay in the page or logout.
         Alert alter = new Alert(Alert.AlertType.CONFIRMATION);
         alter.setTitle("Logout");
         alter.setHeaderText("About logout:(");
         alter.setContentText("Do you want to exiting?");
         // get a handle to the stage, close the page
-        if(alter.showAndWait().get()== ButtonType.OK){
+        if (alter.showAndWait().get() == ButtonType.OK) {
             System.out.println("you Successfully logged out.");
             stage.close();
         }
     }
-
 
     public static void main(String[] args) {
         launch(args);

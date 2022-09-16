@@ -140,7 +140,7 @@ public class AdminUserController {
         todayDay = sdf.format(c.getTime());
 
         CSV csvReader = new CSV("Book1.csv");
-        List<String> csvOutput = csvReader.grabDataSet("Book1.csv");
+        List<String> csvOutput = csvReader.outputDataset("Book1.csv");
         TXT writer = new TXT();
 
         List<String> newCsv = new ArrayList<>();
@@ -171,7 +171,7 @@ public class AdminUserController {
             if (i == 0) {
                 writer.overwriteFile("Book1.csv", newCsv.get(i));
             } else {
-                writer.writeFileMode("Book1.csv", newCsv.get(i));
+                writer.appendFileMode("Book1.csv", newCsv.get(i));
             }
         }
 

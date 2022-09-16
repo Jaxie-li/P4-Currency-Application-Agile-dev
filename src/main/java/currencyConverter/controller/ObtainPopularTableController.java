@@ -18,16 +18,11 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class ObtainPopularTableController {
-    public ObtainPopularTableController() throws IOException {
-    }
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
+
     private Stage stage;
     private Scene scene;
+
     private Parent root;
-    private final Path path = Paths.get("Popular.txt");
-    private CSV csv = new CSV("book1.csv");
 
     @FXML
     private ChoiceBox<String> incomingChoiceBox;
@@ -35,8 +30,18 @@ public class ObtainPopularTableController {
     @FXML
     private ChoiceBox<String> leavingChoiceBox;
 
+    private final Path path = Paths.get("Popular.txt");
+    private CSV csv = new CSV("book1.csv");
+
+    public ObtainPopularTableController() throws IOException {
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
     @FXML
-    private void initialize () throws IOException {
+    private void initialize() throws IOException {
         List<String> lines = Files.readAllLines(path);
         for (String s :
                 csv.currencies) {
@@ -59,15 +64,21 @@ public class ObtainPopularTableController {
         stage.show();
     }
 
-
+    /**
+     * Author: jgan
+     * Modified date: 16/09/2022
+     * This method is for applying changes to popular based on Changes.txt file
+     *
+     * @param actionEvent click apply button
+     * @throws IOException throws any IOException
+     */
     public void applyChange(ActionEvent actionEvent) throws IOException {
         String in = incomingChoiceBox.getValue();
         String out = leavingChoiceBox.getValue();
         int inIndex = csv.indexOf(in);
-//        int outIndex = csv.indexOf(out);
 
         List<String> lines = Files.readAllLines(path);
-        
+
         TXT writer = new TXT();
         //write to Popular.txt
         writer.overwriteFile("Popular.txt", lines.get(0).replace(out, in));
@@ -80,8 +91,7 @@ public class ObtainPopularTableController {
             if (temp[i].equalsIgnoreCase(out)) {
                 outPopularIndex = i;
                 others[count++] = in;
-            }
-            else {
+            } else {
                 others[count++] = temp[i];
             }
         }
@@ -94,25 +104,24 @@ public class ObtainPopularTableController {
                 s = in + ",";
                 System.out.println("executed");
                 for (int j = 0; j < 4; j++) {
-                    s += csv.records.get(inIndex+1).get(csv.indexOf(others[j])+2) + ":E";
-                    if (j < others.length-1) {
+                    s += csv.records.get(inIndex + 1).get(csv.indexOf(others[j]) + 2) + ":E";
+                    if (j < others.length - 1) {
                         s += ",";
                     }
                 }
 
-            }
-            else {
+            } else {
                 // j = 0, 1, 2, 3
                 for (int j = 0; j < 4; j++) {
-                    s += csv.records.get(csv.indexOf(others[i-1]) + 1).get(csv.indexOf(others[j]) + 2) + ":E";
-                    if (j < others.length-1) {
+                    s += csv.records.get(csv.indexOf(others[i - 1]) + 1).get(csv.indexOf(others[j]) + 2) + ":E";
+                    if (j < others.length - 1) {
                         s += ",";
                     }
                 }
 
             }
             // TODO: write s to Popular.txt
-            writer.writeFileMode("Popular.txt", s);
+            writer.appendFileMode("Popular.txt", s);
             System.out.print(s);
         }
     }
