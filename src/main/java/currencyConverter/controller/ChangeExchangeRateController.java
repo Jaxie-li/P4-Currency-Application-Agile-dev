@@ -12,18 +12,10 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
 
 public class ChangeExchangeRateController {
     private Stage stage;
     private Scene scene;
-
-    private final Path path = Paths.get("Popular.txt");
-    private final Path historyPath = Paths.get("Book2.txt");
-
     @FXML
     private ChoiceBox<String> OriginBox;
     @FXML
@@ -66,8 +58,6 @@ public class ChangeExchangeRateController {
         String tmpRate = newRate.getText();
         String originalCurrency = OriginBox.getValue();
         String targetCurrency = ChangedBox.getValue();
-        int csvOriginalIndex = csv.indexOf(originalCurrency);
-        int csvTargetIndex = csv.indexOf(targetCurrency);
 
 //        System.out.println(tmpRate);
 //        System.out.println(originalCurrency);
@@ -78,93 +68,18 @@ public class ChangeExchangeRateController {
 
         } else {
             ReadDate tmpReadDate = new ReadDate();
-            String date = tmpReadDate.readCSV("Book1.csv");
+            String date = tmpReadDate.getDate("Book1.csv");
             String add = "Modified";
             String content = date + "," + add + "," + originalCurrency + "," + targetCurrency + "," + tmpRate;
 
-            String filePath = "changes.txt";
+            String filePath = "Changes.txt";
             TXT writer = new TXT();
-            writer.writeFile(filePath, content);
-
+            writer.appendFileMode(filePath, content);
+            // 根据change.txt里的targetC 和 currentC 来改变 popularC的 趋势
             TXT updateCsv = new TXT();
             ReadDate todayReadDate = new ReadDate();
-            String checkDate = todayReadDate.readCSV("Book1.csv");
-            updateCsv.appliedChanges("changes.txt", checkDate);
-
-
-            double reciprocal  = 1 / Double.parseDouble(tmpRate);
-            String reciprocalString = String.format("%.4f", reciprocal);
-
-
-
-            // read popular.txt
-            List<String> lines = Files.readAllLines(path);
-            int originalIndex = -1;
-            int targetIndex = -1;
-            String[] temp = lines.get(0).split(",");
-            for (int i = 1; i < temp.length; i++) {
-                if (temp[i].equalsIgnoreCase(originalCurrency)) {
-                    originalIndex = i;
-                }
-                else if (temp[i].equalsIgnoreCase(targetCurrency)) {
-                    targetIndex = i;
-                }
-            }
-            if (originalIndex != -1 && targetIndex != -1) {
-                // read book2.txt
-                List<String> historyLines = Files.readAllLines(historyPath);
-                int finalIndex = -1;
-                for (int i = 0; i < historyLines.size(); i++) {
-                    if (historyLines.get(i).contains("DATE,From/To")) {
-                        finalIndex = i;
-                    }
-                }
-
-                TXT updatePopularTxt = new TXT();
-                updatePopularTxt.writeFile2("Popular.txt", lines.get(0));
-//                System.out.println(lines.get(0));
-                for (int i = 1; i < lines.size(); i++) {
-                    String[] tokens = lines.get(i).split(",");
-                    String s = tokens[0] + ",";
-                    for (int j = 1; j < tokens.length; j++) {
-                        if (i == originalIndex && j == targetIndex) {
-                            String[] tmpToks = historyLines.get(csvOriginalIndex+finalIndex+1).split(",");
-                            String suffix;
-
-                            double original = Double.parseDouble(tmpToks[csvTargetIndex+2]);
-                            if (original < Double.parseDouble(tmpRate)) {
-                                suffix = ":I";
-                            } else if (original > Double.parseDouble(tmpRate)) {
-                                suffix = ":D";
-                            } else {
-                                suffix = ":E";
-                            }
-                            s += tmpRate + suffix;
-                        } else if (j == originalIndex && i == targetIndex) {
-                            // reversed tmpRate
-                            String[] tmpToks = historyLines.get(csvTargetIndex+finalIndex+1).split(",");
-                            String suffix;
-
-                            double original = Double.parseDouble(tmpToks[csvOriginalIndex+2]);
-                            if (original < Double.parseDouble(reciprocalString)) {
-                                suffix = ":I";
-                            } else if (original > Double.parseDouble(reciprocalString)) {
-                                suffix = ":D";
-                            } else {
-                                suffix = ":E";
-                            }
-
-                            s += reciprocalString + suffix;
-                        } else {
-                            s += tokens[j];
-                        }
-                        if (j < tokens.length-1) {
-                            s += ",";
-                        }
-                    }
-                    updatePopularTxt.writeFile("Popular.txt",s);
-                }
-            }
+            String checkDate = todayReadDate.getDate("Book1.csv");
+            updateCsv.appliedChanges("Changes.txt", "Book1.csv", checkDate);
         }
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/ExchangeRate.fxml"));

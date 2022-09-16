@@ -10,25 +10,23 @@ public class CSV {
     public List<String> csvOutput = new ArrayList<>();
     public String[] currencies;
 
-
-
-
-
     public CSV(String path) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(path));
         String line;
         while ((line = br.readLine()) != null) {
 
-            if(line.length()==0){break;}
+            if (line.length() == 0) {
+                break;
+            }
 
             String[] values = line.split(",");
 
             records.add(Arrays.asList(values));
         }
 
-        this.currencies = new String[records.size()-1];
+        this.currencies = new String[records.size() - 1];
         for (int i = 0; i < records.size() - 1; i++) {
-            currencies[i] = records.get(i+1).get(1);
+            currencies[i] = records.get(i + 1).get(1);
         }
 
     }
@@ -40,7 +38,16 @@ public class CSV {
         return -1;
     }
 
-    public List<String> readCSV(String filePath) throws IOException {
+    /**
+     * Author: ye
+     * Modified date: 16/09/2022
+     * Method outputDataset : read Book1.csv and transfer it into a List<String> type
+     *
+     * @param filePath Book1.csv || Book2.csv
+     * @return List<String>
+     * @throws IOException throws any IOException
+     */
+    public List<String> outputDataset(String filePath) throws IOException {
         File fileName = new File(filePath);
 
         InputStreamReader reader = new InputStreamReader(new FileInputStream(fileName));
@@ -48,9 +55,7 @@ public class CSV {
         String line = "";
 
         while ((line = bufferedReader.readLine()) != null) {
-                String[] values = line.split(",");
-                csvOutput.add(line);
-
+            csvOutput.add(line);
         }
         return csvOutput;
     }

@@ -129,19 +129,18 @@ public class AdminUserController {
 
     public void setDailyUpdate(ActionEvent event) throws IOException, ParseException {
         TXT dailyUpdateWriter = new TXT();
-        dailyUpdateWriter.updateCsv2("Book2.txt");
+        dailyUpdateWriter.copyBook1ToBook2("Book1.csv", "Book2.txt");
         ReadDate todayDate = new ReadDate();
-        String todayDay = todayDate.readCSV("Book1.csv");
+        String todayDay = todayDate.getDate("Book1.csv");
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Calendar c = Calendar.getInstance();
         c.setTime(sdf.parse(todayDay));
         c.add(Calendar.DATE, 1);
         todayDay = sdf.format(c.getTime());
-//        System.out.println(todayDay);
 
         CSV csvReader = new CSV("Book1.csv");
-        List<String> csvOutput = csvReader.readCSV("Book1.csv");
+        List<String> csvOutput = csvReader.outputDataset("Book1.csv");
         TXT writer = new TXT();
 
         List<String> newCsv = new ArrayList<>();
@@ -170,9 +169,9 @@ public class AdminUserController {
 
         for (int i = 0; i < newCsv.size(); i++) {
             if (i == 0) {
-                writer.writeFile2("Book1.csv", newCsv.get(i));
+                writer.overwriteFile("Book1.csv", newCsv.get(i));
             } else {
-                writer.writeFile("Book1.csv", newCsv.get(i));
+                writer.appendFileMode("Book1.csv", newCsv.get(i));
             }
         }
 
