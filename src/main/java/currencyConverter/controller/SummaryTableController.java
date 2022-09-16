@@ -13,8 +13,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SummaryTableController {
-    private Stage stage;
-    private Scene scene;
     @FXML
     private ChoiceBox<String> firstBox;
     @FXML
@@ -30,9 +28,9 @@ public class SummaryTableController {
     @FXML
     private TextField median;
     @FXML
-    private TextField mmax;
+    private TextField mMax;
     @FXML
-    private TextField mmin;
+    private TextField mMin;
     @FXML
     private TextField mean;
     @FXML
@@ -40,6 +38,7 @@ public class SummaryTableController {
     @FXML
     private TextField allRates;
 
+    public CSV csv;
 
     public void setCsv(CSV csv) {
         this.csv = csv;
@@ -49,13 +48,12 @@ public class SummaryTableController {
             secondBox.getItems().add(csv.records.get(i).get(0));
         }
     }
-    public CSV csv;
 
     public void switchToObtainSummaryTable(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/ObtainSummaryTable.fxml"));
         Parent root = loader.load();
-        stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
         ObtainSummaryController controller = loader.getController();
         controller.setStage(stage);
         CSV csv = new CSV("Book1.csv");
@@ -64,6 +62,20 @@ public class SummaryTableController {
         stage.show();
     }
 
+    /**
+     * set text in the summary page
+     *
+     * @param starting starting date
+     * @param ending   ending date
+     * @param tmp      currency A
+     * @param target   currency B
+     * @param mMedian  median
+     * @param max      max
+     * @param min      min
+     * @param mMean    mean
+     * @param standard sd
+     * @param all      all dates
+     */
     public void displayAllValues(String starting, String ending,
                                  String tmp, String target,
                                  String mMedian, String max,
@@ -74,13 +86,10 @@ public class SummaryTableController {
         tmpCurrency.setText(tmp);
         targetCurrency.setText(target);
         median.setText(mMedian);
-        mmax.setText(max);
-        mmin.setText(min);
+        mMax.setText(max);
+        mMin.setText(min);
         mean.setText(mMean);
         sd.setText(standard);
         allRates.setText(all);
     }
-
-
-
 }

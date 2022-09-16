@@ -1,4 +1,5 @@
 package currencyConverter.controller;
+
 import currencyConverter.ultils.CSV;
 import currencyConverter.ultils.ReadDate;
 import currencyConverter.ultils.TXT;
@@ -24,7 +25,6 @@ import java.text.SimpleDateFormat;
 public class AdminUserController {
     private Stage stage;
     private Scene scene;
-    private Parent root;
     @FXML
     private javafx.scene.control.Button logoutButton;
     @FXML
@@ -32,7 +32,6 @@ public class AdminUserController {
 
     @FXML
     private Button updateChanges;
-
 
     public void returnMainPage(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/Main.fxml"));
@@ -46,6 +45,7 @@ public class AdminUserController {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     public void logout(ActionEvent event) {
         //build a window for stay in the page or logout.
@@ -59,7 +59,8 @@ public class AdminUserController {
             Stage stage = (Stage) logoutButton.getScene().getWindow();
             System.out.println("you Successfully logged out.");
             stage.close();
-        }}
+        }
+    }
 
     public void returnAdminPage(javafx.event.ActionEvent actionEvent) throws IOException {
         //In the exchange rate page can return the previous page(admin page)
@@ -82,8 +83,8 @@ public class AdminUserController {
         stage.setScene(scene);
         stage.show();
     }
-    //second situation => exchange the rate page
 
+    //second situation => exchange the rate page
     public void SwitchExchangeRate(javafx.event.ActionEvent actionEvent) throws IOException {
         //go to the ExchangeRate page, update the rate.
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/ExchangeRate.fxml"));
@@ -97,8 +98,8 @@ public class AdminUserController {
         stage.setScene(scene);
         stage.show();
     }
-    //third situation => switch to the currency history
 
+    //third situation => switch to the currency history
     public void SwitchToRatesHistory(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/RatesHistory.fxml"));
         Parent root = loader.load();
@@ -107,10 +108,8 @@ public class AdminUserController {
         stage.setScene(scene);
         stage.show();
     }
+
     //Fourth situation => add new currency type, include time, currency type
-
-
-
     public void SwitchToAddNewCurrencyType(javafx.event.ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/AddNewTypes.fxml"));
         Parent root = loader.load();
@@ -126,7 +125,13 @@ public class AdminUserController {
 
     }
 
-
+    /**
+     * set up daily update when admin logs in every day, he/she can update the dataset, the date will add 1
+     *
+     * @param event click daily update
+     * @throws IOException    throws IOException
+     * @throws ParseException throws ParseException
+     */
     public void setDailyUpdate(ActionEvent event) throws IOException, ParseException {
         TXT dailyUpdateWriter = new TXT();
         dailyUpdateWriter.copyBook1ToBook2("Book1.csv", "Book2.txt");
@@ -144,7 +149,6 @@ public class AdminUserController {
         TXT writer = new TXT();
 
         List<String> newCsv = new ArrayList<>();
-
         for (int i = 0; i < csvOutput.size(); i++) {
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -160,7 +164,6 @@ public class AdminUserController {
                         stringBuilder.append(values[j]).append(",");
                     }
                 }
-
                 newCsv.add(String.valueOf(stringBuilder));
             } else {
                 newCsv.add(csvOutput.get(i));
@@ -174,13 +177,7 @@ public class AdminUserController {
                 writer.appendFileMode("Book1.csv", newCsv.get(i));
             }
         }
-
     }
-
-
-
-
-
 }
 
 
