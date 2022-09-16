@@ -107,8 +107,6 @@ public class TXT {
                         }
                     }
                     newCsv.add(lastLine.toString());
-
-
                 }
 
                 // applied "modified" changes to file
