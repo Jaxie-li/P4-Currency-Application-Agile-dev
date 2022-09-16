@@ -32,7 +32,7 @@
             </ImageView>
       </graphic>
       </Label>
-      <Button fx:id="loginButton" layoutX="275.0" layoutY="322.0" mnemonicParsing="false" onAction="#userLogin" prefHeight="41.0" prefWidth="98.0" text="Login" />
+      <Button fx:id="loginButton" layoutX="275.0" layoutY="322.0" mnemonicParsing="false" onAction="#checkLogin" prefHeight="41.0" prefWidth="98.0" text="Login" />
       <Label fx:id="wrongMessage" layoutX="242.0" layoutY="106.0" prefHeight="29.0" prefWidth="207.0" textFill="#d32626" />
       <Button alignment="BOTTOM_LEFT" layoutX="3.0" layoutY="359.0" mnemonicParsing="false" onAction="#returnToMainPage" text="Return">
       <graphic>
