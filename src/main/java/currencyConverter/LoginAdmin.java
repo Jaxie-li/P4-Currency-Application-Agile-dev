@@ -40,14 +40,12 @@ public class LoginAdmin {
         stage.show();
     }
 
-    public void userLogin(ActionEvent actionEvent) throws IOException{
-        checkLogin();}
-
     //Check if username and password match, when match => click login => admin page.
     //if not match => click login =>error message, No permission to access the admin page.
-    private void  checkLogin() throws IOException{
+    @FXML
+    private void  checkLogin(ActionEvent actionEvent) throws IOException{
         //the first one username with password.
-        if(uname.getText().toString().equals("admin") && pw.getText().toString().equals("123")){
+        if(uname.getText().equals("admin") && pw.getText().equals("123")){
             wrongMessage.setText("Success! Welcome back admin.");
             //change scene to adminUser page
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/AdminUser.fxml"));
@@ -58,7 +56,7 @@ public class LoginAdmin {
             stage.show();
         }
         //the second one username with password.
-        else if(uname.getText().toString().equals("admin1") && pw.getText().toString().equals("666")){
+        else if(uname.getText().equals("admin1") && pw.getText().equals("666")){
             wrongMessage.setText("Success! Welcome back admin1.");
             //change scene to adminUser page
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/AdminUser.fxml"));
