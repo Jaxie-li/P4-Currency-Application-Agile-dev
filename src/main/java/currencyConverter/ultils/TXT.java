@@ -80,6 +80,7 @@ public class TXT {
                             newCsv.add(tmp);
                         } else {
                             String[] csvLine = csvOutput.get(i).split(",");
+                            if(csvLine.length!=8) break;
                             String tmp;
                             if (!Objects.equals(csvLine[1], targetCurrency)) {
 

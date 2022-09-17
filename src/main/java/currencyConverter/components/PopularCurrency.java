@@ -1,5 +1,8 @@
 package currencyConverter.components;
 
+/**
+ * @author Katherine Xu
+ */
 public class PopularCurrency {
     private String from;
     private String currencyA;
@@ -15,7 +18,7 @@ public class PopularCurrency {
         this.currencyD = generateString(arr[4]);
     }
 
-    private String generateString(String s) {
+    public String generateString(String s) {
         if (s.contains(":D") || s.contains(":I")) return s;
         return s.substring(0, s.length()-2);
     }
