@@ -71,7 +71,12 @@ jacocoTestReport{
     //Exclude all GUI Related test coverage
     afterEvaluate {
         classDirectories.setFrom(files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: ['currencyConverter/controller/*'])
+            fileTree(dir: it, exclude: [
+                    'currencyConverter/controller/*',
+                    'currencyConverter/CurrencyConverterApp*',
+                    'currencyConverter/LoginAdmin*',
+
+            ])
         }))
     }
 }
