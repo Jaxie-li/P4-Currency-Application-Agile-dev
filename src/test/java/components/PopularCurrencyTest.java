@@ -1,5 +1,7 @@
 package components;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * @version v1.0
  * @author: Katherine Xu
@@ -7,4 +9,8 @@ package components;
  * @description: PopularCurrency Testcase
  */
 public class PopularCurrencyTest {
+    @Test
+    public void tempTest(){
+        //Remember to Write the TC!!!!
+    }
 }
