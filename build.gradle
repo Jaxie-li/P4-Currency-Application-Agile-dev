@@ -45,7 +45,7 @@ task replace(type:Exec){
 }
 
 test {
-//    dependsOn(replace)
+    dependsOn(replace)
     useJUnitPlatform()
     test.finalizedBy jacocoTestReport // After gradle run, do gradle jacocoTestReport. It is to say it will auto generate jacocoTestReport
 }
