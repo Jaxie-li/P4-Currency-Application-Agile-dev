@@ -11,10 +11,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.controller.ObtainSummaryController">
-   <VBox prefHeight="404.0" prefWidth="148.0" style="-fx-background-color: #404040;" stylesheets="@Main.css">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #393838;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.controller.ObtainSummaryController">
+   <VBox prefHeight="368.0" prefWidth="148.0" style="-fx-background-color: #404040;" stylesheets="@Main.css">
       <children>
-         <Button fx:id="admin_login" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Admin Login" textFill="#b8b8b8">
+         <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Admin Login" textFill="#b8b8b8">
             <graphic>
                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -26,7 +26,7 @@
                <Font name="Optima Regular" size="12.0" />
             </font>
          </Button>
-         <Button fx:id="popular_currency" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Popular currency" textFill="#b9b8b8">
+         <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToPopularCurrencyTable" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Popular currency" textFill="#b9b8b8">
             <font>
                <Font name="Optima Regular" size="12.0" />
             </font>
@@ -38,7 +38,7 @@
                </ImageView>
             </graphic>
          </Button>
-         <Button fx:id="summary_table" alignment="BOTTOM_LEFT" disable="true" mnemonicParsing="false" onAction="#switchToObtainSummaryTable" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Summary table" textFill="#b8b8b8">
+         <Button fx:id="summary_table" alignment="BOTTOM_LEFT" disable="true" mnemonicParsing="false" onAction="#switchToObtainSummaryTable" prefHeight="36.0" prefWidth="148.0" stylesheets="@Main.css" text="Summary table" textFill="#b9b8b8">
             <font>
                <Font name="Optima Regular" size="12.0" />
             </font>
@@ -62,23 +62,23 @@
          <DatePicker fx:id="endDate" layoutX="310.0" layoutY="229.0" />
          <Label layoutX="310.0" layoutY="192.0" text="End date:" />
          <Label layoutX="56.0" layoutY="192.0" text="Start date:" />
-         <Button fx:id="generateButton" layoutX="164.0" layoutY="318.0" mnemonicParsing="false" onAction="#switchToSummaryTable" prefHeight="45.0" prefWidth="185.0" text="Generate currency summary" textAlignment="CENTER" textFill="#b8b8b8">
+         <Button fx:id="generateButton" layoutX="202.0" layoutY="320.0" mnemonicParsing="false" onAction="#switchToSummaryTable" prefHeight="45.0" prefWidth="200.0" text="Generate summary table" textAlignment="CENTER" textFill="#b8b8b8">
             <font>
                <Font name="Optima Regular" size="13.0" />
             </font>
-         </Button>
-         <Button fx:id="backToMainButton" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="36.0" prefWidth="148.0" text="Back" textFill="#b8b8b8">
-            <font>
-               <Font name="Optima Regular" size="13.0" />
-            </font>
-            <graphic>
-               <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@icon/left.png" />
-                  </image>
-               </ImageView>
-            </graphic>
          </Button>
       </children>
    </Pane>
+   <Button fx:id="backToMainButton" alignment="BOTTOM_LEFT" layoutY="368.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="36.0" prefWidth="148.0" text="Return" textFill="#b8b8b8">
+      <font>
+         <Font name="Optima Regular" size="13.0" />
+      </font>
+      <graphic>
+         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@icon/left.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
 </AnchorPane>

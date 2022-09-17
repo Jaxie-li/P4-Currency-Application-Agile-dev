@@ -91,7 +91,7 @@ public class AddNewCurrencyTypeController {
     }
 
 
-    public void returnAdminPage(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void returnAdminPage(ActionEvent actionEvent) throws IOException {
         //In the exchange rate page can return the previous page(admin page)
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/AdminUser.fxml"));
         Parent root = loader.load();
