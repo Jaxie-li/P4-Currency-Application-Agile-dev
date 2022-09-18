@@ -44,11 +44,11 @@ task replace(type:Exec){
     commandLine './test.sh'
 }
 
-//test {
-//    dependsOn(replace)
-//    useJUnitPlatform()
-//    test.finalizedBy jacocoTestReport // After gradle run, do gradle jacocoTestReport. It is to say it will auto generate jacocoTestReport
-//}
+test {
+    dependsOn(replace)
+    useJUnitPlatform()
+    test.finalizedBy jacocoTestReport // After gradle run, do gradle jacocoTestReport. It is to say it will auto generate jacocoTestReport
+}
 
 jlink {
     imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
