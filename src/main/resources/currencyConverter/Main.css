@@ -18,6 +18,22 @@ Text {
     -fx-font-size: 12px;
 }
 
+.choice-box {
+    -fx-background-color: #404040;
+}
+
+.text-area.scroll-pane {
+    -fx-border-color: #404040;
+}
+
+.text-area .content {
+    -fx-background-color: #404040;
+    -fx-font-family: Optima;
+    -fx-font-size: 12px;
+    -fx-fill: #b8b8b8;
+}
+
+
 /*#generate_button {*/
 /*    -fx-background-radius: 1em;*/
 /*    -fx-border-radius: 1em;*/
@@ -130,15 +146,6 @@ Text {
 /*    -fx-border-color: -fx-box-border;*/
 /*    -fx-border-insets: -1 -1 0 0;*/
 /*}*/
-
-.table-view .column-drag-header {
-    -fx-background-color: -fx-def-color;
-    -fx-opacity: 0.6;
-}
-
-.table-view .column-resize-line {
-    -fx-background-color: -fx-def-color;
-}
 
 .table-view .column-overlay {
     -fx-background-color: darkgray;

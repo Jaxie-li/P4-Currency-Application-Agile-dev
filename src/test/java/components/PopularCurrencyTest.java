@@ -25,7 +25,7 @@ public class PopularCurrencyTest {
     public void generateStringTest(){
         assertEquals(":D",this.popularCurrency.generateString(":D"));
         assertEquals(":I",this.popularCurrency.generateString(":I"));
-        assertEquals("MAGIC_COMPUTER",this.popularCurrency.generateString("MAGIC_COMPUTER_SCIENCE"));
+        assertEquals("MAGIC_COMPUTER_SCIEN",this.popularCurrency.generateString("MAGIC_COMPUTER_SCIENCE"));
     }
     @Test
     public void getFromTest(){
