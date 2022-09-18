@@ -35,7 +35,6 @@
       <children>
           <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToObtainPopularTable" prefHeight="40.0" prefWidth="200.0" text="Modify Popular Currency" />
           <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#SwitchExchangeRate" prefHeight="40.0" prefWidth="200.0" text="Exchange rate" />
-          <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#SwitchToRatesHistory" prefHeight="40.0" prefWidth="200.0" text="Rates History" />
           <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#SwitchToAddNewCurrencyType" prefHeight="40.0" prefWidth="200.0" text="Add new currency type" />
       </children></VBox>
 </AnchorPane>

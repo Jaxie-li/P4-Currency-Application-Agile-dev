@@ -16,8 +16,14 @@ public class PopularCurrency {
     }
 
     public String generateString(String s) {
-        if (s.contains(":D") || s.contains(":I")) return s;
-        return s.substring(0, s.length()-2);
+        String substring = s.substring(0, s.length() - 2);
+        if (s.contains(":D")) {
+            return substring + " \u2193";
+        }
+        if (s.contains(":I")) {
+            return substring + " \u2191";
+        }
+        return substring;
     }
 
     public String getFrom() {
