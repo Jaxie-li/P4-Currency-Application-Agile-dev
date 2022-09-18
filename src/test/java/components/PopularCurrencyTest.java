@@ -7,12 +7,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-/**
- * @version v1.0
- * @author: Katherine Xu
- * @date: Created in 15/09/2022 4:06 am
- * @description: PopularCurrency Testcase
- */
 public class PopularCurrencyTest {
     PopularCurrency popularCurrency;
     final String[] ARR = new String[]{"from:AUD", "a:1", "b:4.7619", "c:0.89", "d:0.68"};
@@ -37,6 +31,7 @@ public class PopularCurrencyTest {
     public void getFromTest(){
         assertEquals("from:AUD",this.popularCurrency.getFrom());
     }
+
     @Test
     public void getCurrencyATest(){
         assertEquals("a",this.popularCurrency.getCurrencyA());
@@ -53,6 +48,7 @@ public class PopularCurrencyTest {
     public void getCurrencyDTest(){
         assertEquals("d:0.",this.popularCurrency.getCurrencyD());
     }
+
     @Test
     public void toStringTest(){
         assertEquals("from:from:AUD, a:a, b:b:4.76, c:c:0., d:d:0.\n",this.popularCurrency.toString());

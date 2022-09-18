@@ -58,16 +58,16 @@
             </VBox>
          </left>
          <center>
-            <Pane prefHeight="400.0" prefWidth="461.0" style="-fx-background-color: #393838#393838;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="400.0" prefWidth="461.0" style="-fx-background-color: #393838#393838;" stylesheets="@Main.css" BorderPane.alignment="CENTER">
                <children>
-                  <TextArea fx:id="numberTa" layoutX="301.0" layoutY="241.0" prefHeight="45.0" prefWidth="169.0" />
+                  <TextArea fx:id="numberTa" layoutX="301.0" layoutY="241.0" prefHeight="45.0" prefWidth="169.0" stylesheets="@Main.css" />
                   <Button fx:id="result" layoutX="77.0" layoutY="297.0" mnemonicParsing="false" onAction="#onclick" prefHeight="39.0" prefWidth="146.0" stylesheets="@Main.css" text="Result" textFill="#b8b8b8">
                      <font>
                         <Font name="Optima Regular" size="13.0" />
                      </font>
                   </Button>
-                  <ChoiceBox fx:id="current_currency_choicebox" layoutX="306.0" layoutY="122.0" prefWidth="150.0" />
-                  <ChoiceBox fx:id="targret_choicebox" layoutX="306.0" layoutY="187.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="current_currency_choicebox" layoutX="306.0" layoutY="122.0" prefWidth="150.0" stylesheets="@Main.css" />
+                  <ChoiceBox fx:id="targret_choicebox" layoutX="306.0" layoutY="187.0" prefWidth="150.0" stylesheets="@Main.css" />
                   <Label fx:id="title" alignment="CENTER" layoutX="175.0" layoutY="35.0" prefHeight="52.0" prefWidth="203.0" stylesheets="@Main.css" text="Currency Converter" textFill="#b8b8b8">
                      <font>
                         <Font name="Optima Regular" size="24.0" />

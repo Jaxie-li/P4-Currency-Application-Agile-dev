@@ -9,14 +9,14 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #383939;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="currencyConverter.controller.AddNewCurrencyTypeController">
     <children>
-        <Label layoutX="106.0" layoutY="95.0" prefHeight="33.0" prefWidth="145.0" text="New  currency type">
+        <Label layoutX="106.0" layoutY="95.0" prefHeight="33.0" prefWidth="219.0" text="New  currency type">
             <font>
-                <Font size="16.0" />
+                <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="106.0" layoutY="168.0" prefHeight="33.0" prefWidth="145.0" text="Choose convert type">
+        <Label layoutX="106.0" layoutY="168.0" prefHeight="33.0" prefWidth="219.0" text="Choose convert type">
             <font>
-                <Font size="16.0" />
+                <Font size="14.0" />
             </font>
         </Label>
         <ChoiceBox fx:id="TargetType" layoutX="347.0" layoutY="168.0" prefHeight="26.0" prefWidth="219.0" />
@@ -27,9 +27,9 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="106.0" layoutY="241.0" prefHeight="33.0" prefWidth="145.0" text="Currency rate">
+        <Label layoutX="106.0" layoutY="241.0" prefHeight="33.0" prefWidth="219.0" text="Currency rate">
             <font>
-                <Font size="16.0" />
+                <Font size="14.0" />
             </font>
         </Label>
       <TextField fx:id="newCurrencyType" layoutX="347.0" layoutY="95.0" prefHeight="26.0" prefWidth="219.0" />

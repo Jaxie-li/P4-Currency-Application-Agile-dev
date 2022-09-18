@@ -1,8 +1,5 @@
 package currencyConverter.components;
 
-/**
- * @author Katherine Xu
- */
 public class PopularCurrency {
     private String from;
     private String currencyA;
