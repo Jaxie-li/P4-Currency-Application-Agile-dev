@@ -174,7 +174,7 @@ public class ObtainSummaryController {
                 if ((tmp.after(start) && tmp.before(end)) || tmp.equals(start) || tmp.equals(end)) {
 
                     if (line[1].equals(tmpCur)) {
-                        System.out.println(line[targetIndex]);
+//                        System.out.println(line[targetIndex]);
                         rateList.add(line[targetIndex]);
                     }
                 }

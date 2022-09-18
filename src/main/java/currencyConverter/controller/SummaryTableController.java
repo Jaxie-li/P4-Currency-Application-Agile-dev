@@ -28,9 +28,9 @@ public class SummaryTableController {
     @FXML
     private TextField median;
     @FXML
-    private TextField mMax;
+    private TextField maxx;
     @FXML
-    private TextField mMin;
+    private TextField minn;
     @FXML
     private TextField mean;
     @FXML
@@ -86,8 +86,8 @@ public class SummaryTableController {
         tmpCurrency.setText(tmp);
         targetCurrency.setText(target);
         median.setText(mMedian);
-        mMax.setText(max);
-        mMin.setText(min);
+        maxx.setText(max);
+        minn.setText(min);
         mean.setText(mMean);
         sd.setText(standard);
         allRates.setText(all);
