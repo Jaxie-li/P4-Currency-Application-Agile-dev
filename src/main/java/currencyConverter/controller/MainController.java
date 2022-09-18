@@ -41,12 +41,16 @@ public class MainController {
     public void onclick() {
         String currentCurrency = current_currency_choicebox.getValue();
         String targetCurrency =  targret_choicebox.getValue();
-        double num = Double.parseDouble(numberTa.getText());
+        //double num = Double.parseDouble(numberTa.getText());
         int currentIndex = csv.indexOf(currentCurrency);
         int targetIndex = csv.indexOf(targetCurrency);
         double rate = Double.parseDouble(csv.records.get(currentIndex+1).get(targetIndex+2));
-        ansLb.setText(String.format("%.2f\n", num * rate));
-//        ansLb.setText("");
+        try {
+            double num = Double.parseDouble(numberTa.getText());
+            ansLb.setText(String.format("%.2f\n", num * rate));
+        } catch (NumberFormatException nfe) {
+            ansLb.setText("Please enter a number.");
+        }
     }
 
     public void switchToPopularCurrencyTable(javafx.event.ActionEvent actionEvent) throws IOException {
