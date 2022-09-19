@@ -30,7 +30,8 @@ Text {
     -fx-background-color: #404040;
     -fx-font-family: Optima;
     -fx-font-size: 12px;
-    -fx-fill: #b8b8b8;
+    -fx-text-fill: #999999;
+
 }
 
 
