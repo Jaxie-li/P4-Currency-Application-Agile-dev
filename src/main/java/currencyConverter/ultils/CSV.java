@@ -24,9 +24,11 @@ public class CSV {
             records.add(Arrays.asList(values));
         }
 
-        this.currencies = new String[records.size() - 1];
-        for (int i = 0; i < records.size() - 1; i++) {
-            currencies[i] = records.get(i + 1).get(1);
+        if (records.size() > 0) {
+            this.currencies = new String[records.size() - 1];
+            for (int i = 0; i < records.size() - 1; i++) {
+                currencies[i] = records.get(i + 1).get(1);
+            }
         }
 
     }
