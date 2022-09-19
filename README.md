@@ -5,10 +5,10 @@
  **Username:admin Password:123**  
  **Username:admin1 Password:666**
  
- ## How to test
+## How to test
 The ```gradle build``` ```gradle test``` commands are used in the terminal to execute these tests.
 When the tests all pass, you will see "BUILD SUCCESSFUL" in the terminal.  
-enter ```gradle build clean``` then enter the command ```gradle test jacocoTestReport``` to generate reports for both test coverage and code coverage in the reports.
+enter ```gradle build clean``` then enter the command ```gradle test jacocoTestReport``` to generate reports for both test coverage and code coverage in the reports.  
 
 There are two ways to visit jacoco Test Reports:  
 1, Open **build/reports/jacoco/html/index.html**   
