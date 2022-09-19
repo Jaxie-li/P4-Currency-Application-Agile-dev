@@ -5,7 +5,7 @@
  **Username:admin Password:123**  
  **Username:admin1 Password:666**
 
-## Test
+## Test case
 The **"gradle build"** and **"gradle test"** commands are used in the terminal to execute these tests.
 When the tests all pass, you will see "BUILD SUCCESSFUL" in the terminal.  
 enter **"gradle build clean"**, then enter the command **"gradle test jacocoTestReport"** to generate reports for both test coverage and code coverage in the reports.
