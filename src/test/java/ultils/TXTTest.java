@@ -9,12 +9,6 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @version v1.0
- * @author: Katherine Xu
- * @date: Created in 15/09/2022 3:53 am
- * @description: TXTTest
- */
 public class TXTTest {
     private TXT txt;
     @BeforeEach

@@ -9,12 +9,6 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @version v1.0
- * @author: Kathrine Xu
- * @date: Created in 15/09/2022 2:52 am
- * @description: CSV Ultils Test
- */
 public class CSVTest {
     CSV csv;
 

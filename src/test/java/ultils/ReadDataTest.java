@@ -8,12 +8,6 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * @version v1.0
- * @author: Katherine Xu
- * @date: Created in 15/09/2022 3:52 am
- * @description: Read Data TestCase
- */
 public class ReadDataTest {
     private ReadDate readDate;
     @BeforeEach
