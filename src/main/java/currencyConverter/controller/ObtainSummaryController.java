@@ -132,8 +132,7 @@ public class ObtainSummaryController {
         String median = Double.toString(Calculator.Median(doubleRateList));
 
         // get the SD
-        Double doubleSD = Calculator.calculateSD(doubleRateList);
-        String sd = String.format("%.4f", doubleSD);
+        String sd = Calculator.calculateSD(doubleRateList);
 
         String allRates = rateList.toString();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/currencyConverter/SummaryTable.fxml"));

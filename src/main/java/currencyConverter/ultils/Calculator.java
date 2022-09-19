@@ -1,7 +1,3 @@
-/**
- * Auhtor: Ye Yuan
- * Modified date: 16/09/2022
- */
 package currencyConverter.ultils;
 
 import java.util.ArrayList;
@@ -38,7 +34,7 @@ public class Calculator {
      * @param numArray Arraylist<double> >> rate list
      * @return standard value in double type
      */
-    public static double calculateSD(ArrayList<Double> numArray) {
+    public static String calculateSD(ArrayList<Double> numArray) {
         double sum = 0.0, standardDeviation = 0.0;
         int length = numArray.size();
 
@@ -52,7 +48,8 @@ public class Calculator {
             standardDeviation += Math.pow(num - mean, 2);
         }
 
-        return Math.sqrt(standardDeviation / length);
+        double value = Math.sqrt(standardDeviation / length);
+        return String.format("%.4f", value);
     }
 
 }
